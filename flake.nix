@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    hydra-test.url = "github:boletus-edulis/hydra-test.git";
+    hydra-test.url = "github:boletus-edulis/hydra-test";
     hydra-test.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
