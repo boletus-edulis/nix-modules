@@ -14,7 +14,8 @@
         enable = true;
       };
       home.packages = with pkgs; [
-        atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr
+        atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
+        nftables tcpdump gdb
       ];
       home.stateVersion = "23.11";
       programs.emacs = {

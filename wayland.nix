@@ -67,7 +67,8 @@
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.packages = with pkgs; [
-        swaylock helvum imhex flatpak virt-manager pavucontrol okular thunderbird firefox
+        swaylock helvum imhex flatpak virt-manager pavucontrol okular
+        thunderbird firefox signal-desktop mumble chromium
       ];
       home.sessionVariables = {
         WLR_NO_HARDWARE_CURSORS = 1;
