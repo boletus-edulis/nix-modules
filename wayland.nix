@@ -73,7 +73,7 @@
       home.pointerCursor = {
         name = "Adwaita";
         package = pkgs.gnome.adwaita-icon-theme;
-        size = 16;
+        size = 32;
         gtk.enable = true;
         x11 = {
           enable = true;
@@ -231,7 +231,6 @@
           seat = {
             "*" = {
               keyboard_grouping = "none";
-              xcursor_theme = "default 48";
             };
           };
 
