@@ -154,4 +154,10 @@ in {
     vaapiVdpau
     libvdpau-va-gl
   ];
+
+  home-manager.users."${username}" = { pkgs, config, ... }: {
+    home.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = 1;
+    };
+  };
 }
