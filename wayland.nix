@@ -89,6 +89,7 @@
         layout = "us";
         variant = "altgr-intl";
       };
+      gtk.enable = true;
       programs.alacritty = {
         enable = true;
         settings = {
