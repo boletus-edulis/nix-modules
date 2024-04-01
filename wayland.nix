@@ -221,6 +221,7 @@
           seat = {
             "*" = {
               keyboard_grouping = "none";
+              xcursor_theme = "default 48";
             };
           };
 
