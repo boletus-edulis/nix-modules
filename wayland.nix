@@ -70,6 +70,15 @@
         swaylock helvum imhex flatpak virt-manager pavucontrol okular
         thunderbird firefox signal-desktop mumble chromium
       ];
+      home.pointerCursor = {
+        name = "Adwaita";
+        package = pkgs.gnome.adwaita-icon-theme;
+        size = 24;
+        x11 = {
+          enable = true;
+          defaultCursor = "Adwaita";
+        };
+      };
       home.sessionVariables = {
         QT_QPA_PLATFORM = "wayland";
         GDK_BACKEND = "wayland";
