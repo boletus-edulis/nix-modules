@@ -13,6 +13,8 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosModules = {
+      enable-unfree = import ./enable-unfree.nix;
+
       baseline-configuration = import ./base-configuration.nix;
       base-home = import ./home.nix;
       wayland = import ./wayland.nix;
