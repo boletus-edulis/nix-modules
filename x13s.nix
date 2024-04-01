@@ -99,12 +99,6 @@ in {
   virtualisation.podman.enable = true;
   virtualisation.podman.autoPrune.enable = true;
 
-  services.syncthing = {
-    enable = true;
-    user = "Us0r";
-    configDir = "/home/Us0r/.config/syncthing";
-  };
-
   services.tlp = {
     enable = true;
     settings = {
@@ -113,8 +107,6 @@ in {
       USB_AUTOSUSPEND = 1;
     };
   };
-
-  services.fwupd.enable = true;
 
   networking.hostName = "ribes-uva-crispa";
   networking.networkmanager.enable = true;

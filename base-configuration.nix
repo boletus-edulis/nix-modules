@@ -35,6 +35,10 @@
       LC_TIME = "de_DE.UTF-8";
     };
 
+    console = {
+      keyMap = "us";
+    };
+
     services.openssh.enable = true;
     services.logrotate.enable = true;
 

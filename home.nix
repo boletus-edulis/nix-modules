@@ -5,7 +5,7 @@
   config = {
     users.users."${username}" = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "libvirtd" "podman" "video" ];
+      extraGroups = [ "wheel" "libvirtd" "podman" "video" "rtkit" ];
     };
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
