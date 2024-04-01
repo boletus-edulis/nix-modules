@@ -73,7 +73,8 @@
       home.pointerCursor = {
         name = "Adwaita";
         package = pkgs.gnome.adwaita-icon-theme;
-        size = 24;
+        size = 16;
+        gtk.enable = true;
         x11 = {
           enable = true;
           defaultCursor = "Adwaita";
