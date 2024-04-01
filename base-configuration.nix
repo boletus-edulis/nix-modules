@@ -4,9 +4,9 @@
   options = {};
   config = {
     nix = {
-      settings.experimental-features = [ "nix-command" "flakes" ];
-      settings.auto-optimise-store = true;
       settings = {
+        experimental-features = [ "nix-command" "flakes" ];
+        auto-optimise-store = true;
         substituters = [
           "https://cache.useless-thing.net/"
         ];
@@ -14,9 +14,12 @@
           "cache.useless-thing.net:gifkyXgOeSVeFzqi4kVhjry2SmW4g0L6lnxCmrqZczg="
         ];
       };
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
     };
-
-    nixpkgs.config.allowUnfree = true;
 
     time.timeZone = "Europe/Berlin";
     i18n.defaultLocale = "en_US.UTF-8";
