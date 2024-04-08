@@ -66,9 +66,9 @@ in {
   boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s;
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
-    "clk_ignore_unused" "firmware_class.path=${
+    "clk_ignore_unused" "pd_ignore_unused" "firmware_class.path=${
       builtins.toString cpkgs.x13s-firmware
-    }/lib/firmware"
+    }/lib/firmware" "arm64.nopauth"
   ];
   boot.initrd.availableKernelModules = [ "nvme" "btrfs" "dm_mod" ]; #modules;
   boot.initrd.kernelModules = [ "nvme" "btrfs" "dm_mod" ]; #modules;
