@@ -397,11 +397,11 @@
       services.mako = {
         enable = true;
       };
-      services.gammastep = {
-        enable = true;
-        longitude = "48.2403029";
-        latitude = "11.660478";
-      };
+      #services.gammastep = {
+      #  enable = true;
+      #  longitude = "48.2403029";
+      #  latitude = "11.660478";
+      #};
     };
   };
 }
