@@ -1,59 +1,15 @@
 { inputs, pkgs, cpkgs, stdenv, lib, config, modulesPath, options, username, ... }:
 
-let
-  modules = [
-    "qcom_stats"
-    "rpm_master_stats"
-    "qcom_tsens"
-    "socinfo"
-    "qcom-rpmh-regulator"
-    "rpmhpd"
-    "rpmpd"
-    "qcom_q6v5_adsp"
-    "phy-qcom-qmp-pcie-msm8996"
-    "pinctrl-sc8280xp-lpass-lpi"
-    "smem"
-    "smsm"
-    "nvme"
-    "qcom-cpufreq-hw"
-    "qcom-cpufreq-nvmem"
-    "pcie_qcom"
-    "spi-geni-qcom"
-    "i2c-qcom-geni"
-    "qcom_rpm"
-    "qcom_wdt"
-    "rpm-proc"
-    "icc-smd-rpm"
-    "qcom_glink_rpm"
-    "qcom-rpmh-regulator"
-    "qcom-rpm-regulator"
-    "clk-rpm"
-    "clk-smd-rpm"
-    "qcom-coincell"
-    "fastrpc"
-    "btrfs"
-  ];
-in {
+{
   imports =
     [ # Include the results of the hardware scan.
       (modulesPath + "/installer/scan/not-detected.nix")
-      # inputs.nix13s.nixosModules.nix13s
     ];
 
-  #  nixpkgs.overlays = [
-  #    (final: super: {
-  #      libvirt = super.libvirt.override(_: {
-  #        enableZfs = false;
-  #      });
-  #      zfs = super.zfs.overrideAttrs(_: {
-  #        meta.platforms = [];
-  #      });
-  #    })
-  #  ];
+  boot.binfmt.emulatedSystems = [
+    "x86_64-linux"
+  ];
 
-  #  boot.binfmt.emulatedSystems = [
-  #    "x86_64-linux"
-  #  ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.grub = {
@@ -70,11 +26,18 @@ in {
       builtins.toString cpkgs.x13s-firmware
     }/lib/firmware" "arm64.nopauth"
   ];
-  boot.initrd.availableKernelModules = [ "nvme" "btrfs" "dm_mod" ]; #modules;
-  boot.initrd.kernelModules = [ "nvme" "btrfs" "dm_mod" ]; #modules;
 
-  #programs.nushell.enable = true;
-  #users.defaultUserShell = pkgs.nushell;
+  boot.initrd = let
+    modules = [ "nvme" "phy_qcom_qmp_pcie" "pcie_qcom" "phy_qcom_qmp_ufs" "ufs_qcom" "i2c_hid_of"
+                "i2c_qcom_geni" "leds_qcom_lpg" "pwm_bl" "qrtr" "pmic_glink_altmode" "gpio_sbu_mux"
+                "phy_qcom_qmp_combo" "gpucc_sc8280xp" "dispcc_sc8280xp" "phy_qcom_edp" "panel_edp"
+                "msm" ];
+  in {
+    availableKernelModules = modules;
+    kernelModules = modules;
+    verbose = true;
+    supportedFilesystems = { btrfs = true; };
+  };
 
   console = {
     keyMap = "us";
@@ -133,13 +96,6 @@ in {
     };
 
   swapDevices = [ ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  #networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlP6p1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
