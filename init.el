@@ -58,7 +58,15 @@
 
   (leaf vterm :ensure t)
 
-  (load-theme 'wombat))
+  (leaf treesit-auto
+    :ensure t
+    :custom ((treesit-auto-install . 'prompt))
+    :config
+    (require 'treesit-auto)
+    (treesit-auto-add-to-auto-mode-alist 'all)
+    (global-treesit-auto-mode))
+
+  (load-theme 'modus-vivendi))
 
 (condition-case nil
     (load-file "~/.emacs.d/init-real.el")
