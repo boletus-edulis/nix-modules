@@ -138,7 +138,7 @@
         enable = true;
         settings = {
           colors =  {
-            "draw_bold_text_with_bright_colors" = true;
+            "draw_bold_text_with_bright_colors" = false;
           };
           env = {
             TERM = "xterm-256color";
