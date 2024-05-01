@@ -142,6 +142,7 @@
           };
           env = {
             TERM = "xterm-256color";
+            COLORTERM = "true";
             #WINIT_X11_SCALE_FACTOR = "1.0";
           };
           font = {
