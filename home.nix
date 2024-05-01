@@ -21,7 +21,7 @@
       programs.emacs = {
         enable = true;
         package = pkgs.emacs-nox;
-        extraPackages = epkgs: [ epkgs.vterm ];
+        extraPackages = epkgs: [ epkgs.vterm epkgs.tree-sitter-langs ];
       };
       services.emacs = {
         enable = true;
