@@ -20,7 +20,7 @@
       programs.emacs = {
         enable = true;
         package = pkgs.emacs-git-nox;
-        extraPackages = epkgs: [ epkgs.vterm epkgs.tsc ];
+        extraPackages = epkgs: [ epkgs.vterm epkgs.tsc epkgs.treesit-grammars.with-all-grammars ];
       };
       #services.emacs = {
       #  enable = true;
