@@ -20,7 +20,7 @@
       programs.emacs = {
         enable = true;
         package = pkgs.emacs-git-nox;
-        extraPackages = epkgs: [ epkgs.vterm ];
+        extraPackages = epkgs: [ epkgs.vterm epkgs.tsc ];
       };
       #services.emacs = {
       #  enable = true;
