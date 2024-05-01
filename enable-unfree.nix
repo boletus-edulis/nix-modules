@@ -8,6 +8,6 @@ let
   };
 in
 {
-  nixpkgs.overlays = [ overlay-unstable ];
+  #nixpkgs.overlays = [ overlay-unstable ];
   nixpkgs.config.allowUnfree = true;
 }
