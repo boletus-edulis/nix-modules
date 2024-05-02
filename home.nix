@@ -24,16 +24,21 @@
           epkgs.vterm epkgs.treesit-grammars.with-all-grammars
         ];
       };
-      #services.emacs = {
-      #  enable = true;
-      #  defaultEditor = true;
-      #  startWithUserSession = true;
-      #  client.arguments = [ "-nw" ];
-      #};
+      services.emacs = {
+        enable = true;
+        defaultEditor = true;
+        startWithUserSession = true;
+        client.arguments = [ "-nw" ];
+      };
       home.file.emacs-init-el = {
         enable = true;
         target = ".emacs.d/init.el";
         source = ./init.el;
+      };
+      home.file.emacs-init-additional-el = {
+        enable = true;
+        target = ".emacs.d/init-additional.el";
+        source = ./init-additional.el;
       };
     };
   };
