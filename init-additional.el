@@ -95,13 +95,7 @@
   (setq mode-line-compact t))
 
 (leaf rust-auto-use :ensure t)
-(leaf ron-mode :ensure t)
 (leaf lsp-mode :ensure t)
-
-(leaf org
-  :ensure t
-  :config
-  (add-to-list 'org-latex-packages-alist '("" "tabularx" t)))
 
 (leaf lsp-nix
   :config
@@ -120,4 +114,4 @@
 (leaf nix-mode
   :ensure t
   :commands lsp-deferred
-  :hook ((nix-mode-hook . lsp-deferred)))
+  :hook (nix-mode-hook lsp-deferred))
