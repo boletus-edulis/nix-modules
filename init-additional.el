@@ -67,12 +67,17 @@
   :bind (:company-active-map
          ("M-<tab>" . company-complete-common))
   :hook (emacs-startup-hook . global-company-mode)
-  :custom ((company-idle-delay . 0)))
+  :custom ((company-idle-delay . 0))
+  :config (leaf company-prescient
+            :ensure t))
 
 (leaf ivy
   :ensure t
   :custom ((ivy-re-builders-alist . '((t . ivy--regex-fuzzy))))
-  :hook (after-init-hook ivy-mode))
+  :hook (after-init-hook ivy-mode)
+  :config (leaf ivy-prescient
+            :ensure t
+            :custom ((ivy-prescient-enable-filtering . nil))))
 
 (leaf rustic
   :ensure t
@@ -114,4 +119,4 @@
 (leaf nix-mode
   :ensure t
   :commands lsp-deferred
-  :hook (nix-mode-hook lsp-deferred))
+  :hook ((nix-mode-hook . lsp-deferred)))
