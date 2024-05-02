@@ -61,23 +61,27 @@
   :ensure t
   :global-minor-mode yas-global-mode)
 
+(leaf company-prescient
+  :ensure t
+  :hook (company-mode-hook company-prescient-mode))
+
 (leaf company
   :ensure t
   :after yasnippet
   :bind (:company-active-map
          ("M-<tab>" . company-complete-common))
   :hook (emacs-startup-hook . global-company-mode)
-  :custom ((company-idle-delay . 0))
-  :config (leaf company-prescient
-            :ensure t))
+  :custom ((company-idle-delay . 0)))
+
+(leaf ivy-prescient
+  :ensure t
+  :custom ((ivy-prescient-enable-filtering . nil))
+  :hook (company-mode-hook ivy-prescient-mode))
 
 (leaf ivy
   :ensure t
   :custom ((ivy-re-builders-alist . '((t . ivy--regex-fuzzy))))
-  :hook (after-init-hook ivy-mode)
-  :config (leaf ivy-prescient
-            :ensure t
-            :custom ((ivy-prescient-enable-filtering . nil))))
+  :hook (after-init-hook ivy-mode))
 
 (leaf rustic
   :ensure t
