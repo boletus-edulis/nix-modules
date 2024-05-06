@@ -11,7 +11,11 @@
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
       nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
-      programs.bash.enable = true;
+      programs.bash = {
+        enable = true;
+        historySize = -1;
+        historyFileSize = -1;
+      };
       home.packages = with pkgs; [
         atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
         nftables tcpdump gdb
