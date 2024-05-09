@@ -39,8 +39,6 @@
     :custom ((transient-mark-mode . t)
 	     (show-paren-mode . t)
              (menu-bar-mode . nil)
-             (tool-bar-mode . nil)
-             (scroll-bar-mode . nil)
              (indent-tabs-mode . t)
 	     (which-function-mode . t)
 	     (show-paren-delay . 0)
@@ -49,7 +47,10 @@
 	     (make-backup-files . nil)
 	     (auto-save-default . nil)
 	     (global-auto-revert-mode . t)
-	     (column-number-mode . t)))
+	     (column-number-mode . t))
+    :config (when (display-graphic-p)
+              (tool-bar-mode -1)
+              (scroll-bar-mode -1)))
 
   (leaf whitespace
     :custom ((whitespace-style . '(face trailing lines-tail space-before-tab))
