@@ -19,8 +19,10 @@
       windowManager.stumpwm.enable = true;
       displayManager.lightdm = {
         enable = true;
-        greeters.mini.enable = true;
-        greeters.mini.user = "${username}";
+        greeters = {
+          gtk.enable = true;
+          gtk.theme.name = "Adwaita-dark";
+        };
       };
     };
     services.printing.enable = true;
