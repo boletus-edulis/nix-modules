@@ -71,6 +71,14 @@
           defaultCursor = "Adwaita";
         };
       };
+      home.sessionVariables = {
+        GDK_CORE_DEVICE_EVENTS = "1";
+      };
+      home.file.stumpwm-init-el = {
+        enable = true;
+        target = ".stumpwm.d/init.lisp";
+        source = ./init.lisp;
+      };
       home.keyboard = {
         layout = "us";
         variant = "altgr-intl";
@@ -85,7 +93,7 @@
           env = {
             TERM = "xterm-256color";
             COLORTERM = "true";
-            #WINIT_X11_SCALE_FACTOR = "1.0";
+            WINIT_X11_SCALE_FACTOR = "1.0";
           };
           font = {
             size = 14;
