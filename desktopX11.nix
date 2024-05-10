@@ -20,6 +20,7 @@
       displayManager.lightdm = {
         enable = true;
         greeters.mini.enable = true;
+        greeters.mini.user = "${username}";
       };
     };
     services.printing.enable = true;
