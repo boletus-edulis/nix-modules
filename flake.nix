@@ -22,6 +22,7 @@
       baseline-configuration = import ./base-configuration.nix;
       base-home = import ./home.nix;
       wayland = import ./wayland.nix;
+      desktopX11 = import ./desktopX11.nix;
 
       ribes-uva-crispa = import ./x13s.nix;
     };

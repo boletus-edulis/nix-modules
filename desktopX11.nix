@@ -1,0 +1,113 @@
+{ pkgs, cpkgs, config, username, ... }:
+
+{
+  options = {};
+  config = {
+    programs.dconf.enable = true;
+
+    services.xserver = {
+      enable = true;
+      desktopManager = {
+        xterm.enable = false;
+        xfce = {
+          enable = true;
+          noDesktop = false;
+          enableXfwm = false;
+        };
+      };
+      displayManager.defaultSession = "xfce";
+      windowManager.stumpwm.enable = true;
+      displayManager.lightdm.enable = true;
+    };
+    services.printing.enable = true;
+    services.avahi.enable = true;
+    # Important to resolve .local domains of printers, otherwise you get an error
+    # like  "Impossible to connect to XXX.local: Name or service not known"
+    services.avahi.nssmdns4 = true;
+
+    services.syncthing = {
+      enable = true;
+      user = "Us0r";
+      configDir = "/home/Us0r/.config/syncthing";
+    };
+
+    # virt-manager usb forwarding
+    virtualisation.spiceUSBRedirection.enable = true;
+
+    # home manager
+    security.polkit.enable = true;
+
+    # audio
+    security.rtkit.enable = true;
+
+    sound.enable = true;
+    hardware.pulseaudio.enable = false;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+
+    fonts.packages = [
+      pkgs.iosevka
+      cpkgs.iosevka-term
+      pkgs.font-awesome
+    ];
+
+    home-manager.users."${username}" = { pkgs, config, ... }: {
+      home.packages = with pkgs; [
+        swaylock helvum imhex flatpak virt-manager pavucontrol okular
+        thunderbird firefox signal-desktop mumble chromium
+      ];
+      home.pointerCursor = {
+        name = "Adwaita";
+        package = pkgs.gnome.adwaita-icon-theme;
+        size = 24;
+        gtk.enable = true;
+        x11 = {
+          enable = true;
+          defaultCursor = "Adwaita";
+        };
+      };
+      home.keyboard = {
+        layout = "us";
+        variant = "altgr-intl";
+      };
+      gtk.enable = true;
+      programs.alacritty = {
+        enable = true;
+        settings = {
+          colors =  {
+            "draw_bold_text_with_bright_colors" = false;
+          };
+          env = {
+            TERM = "xterm-256color";
+            COLORTERM = "true";
+            #WINIT_X11_SCALE_FACTOR = "1.0";
+          };
+          font = {
+            size = 14;
+            bold = {
+              family = "Iosevka Term";
+              style = "Bold";
+            };
+            bold_italic = {
+              family = "Iosevka Term";
+              style = "Bold Italic";
+            };
+            italic = {
+              family = "Iosevka Term";
+              style = "Italic";
+            };
+            normal = {
+              family = "Iosevka Term";
+              style = "Regular";
+            };
+          };
+        };
+      };
+    };
+  };
+}
