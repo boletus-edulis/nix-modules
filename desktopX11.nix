@@ -15,7 +15,7 @@
           enableXfwm = false;
         };
       };
-      displayManager.defaultSession = "xfce";
+      displayManager.defaultSession = "xfce+stumpwm";
       windowManager.stumpwm.enable = true;
       displayManager.lightdm.enable = true;
     };
