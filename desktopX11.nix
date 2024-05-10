@@ -4,7 +4,6 @@
   options = {};
   config = {
     programs.dconf.enable = true;
-
     services.xserver = {
       enable = true;
       desktopManager = {
@@ -59,7 +58,6 @@
     fonts.packages = [
       pkgs.iosevka
       cpkgs.iosevka-term
-      pkgs.font-awesome
     ];
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
