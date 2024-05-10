@@ -17,7 +17,10 @@
       };
       displayManager.defaultSession = "xfce+stumpwm";
       windowManager.stumpwm.enable = true;
-      displayManager.lightdm.enable = true;
+      displayManager.lightdm = {
+        enable = true;
+        greeters.mini.enable = true;
+      };
     };
     services.printing.enable = true;
     services.avahi.enable = true;
