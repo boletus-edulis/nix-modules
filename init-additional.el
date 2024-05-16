@@ -102,7 +102,9 @@
     (lsp-inlay-hint-enable . t)
     )
   :config
-  (setq mode-line-compact t))
+  ;;(setq mode-line-compact t)
+  )
+(setcdr (assoc "\\.rs\\'" auto-mode-alist) 'rustic-mode)
 
 (leaf rust-auto-use :ensure t)
 
