@@ -52,7 +52,7 @@
 
 (leaf magit
   :ensure t
-  :custom `((magit-log-section-commit-count . 500)))
+  :custom ((magit-log-section-commit-count . 500)))
 
 (leaf yasnippet
   :ensure t
