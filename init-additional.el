@@ -1,6 +1,6 @@
 (leaf doom-modeline
   :ensure t
-  :hook (emacs-startup-hook . doom-modeline-mode))
+  :hook emacs-startup-hook)
 
 (leaf transient-dwim
   :ensure t
@@ -60,7 +60,7 @@
 
 (leaf company-prescient
   :ensure t
-  :hook (company-mode-hook . company-prescient-mode))
+  :hook company-mode-hook)
 
 (leaf company
   :ensure t
@@ -73,16 +73,16 @@
 (leaf ivy-prescient
   :ensure t
   :custom ((ivy-prescient-enable-filtering . nil))
-  :hook (company-mode-hook . ivy-prescient-mode))
+  :hook company-mode-hook)
 
 (leaf ivy
   :ensure t
   :custom ((ivy-re-builders-alist . '((t . ivy--regex-fuzzy))))
-  :hook (after-init-hook . ivy-mode))
+  :hook after-init-hook)
 
 (leaf cargo-mode
   :ensure t
-  :hook rust-mode-hook rustic-mode-hook)
+  :hook ((rust-mode-hook rustic-mode-hook) . cargo-minor-mode)
 
 (leaf rustic
   :ensure t
