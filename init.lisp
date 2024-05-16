@@ -34,8 +34,8 @@
 (setf (getenv "QT_AUTO_SCREEN_SCALE_FACTOR") "1")
 (setf (getenv "QT_SCALE_FACTOR") "1.7")
 (setf (getenv "QT_FONT_DPI") "96")
-(setf (getenv "GDK_SCALE") "2")
-(setf (getenv "GDK_DPI_SCALE") "1")
+;;(setf (getenv "GDK_SCALE") "2")
+;;(setf (getenv "GDK_DPI_SCALE") "1")
 
 ;; (setf (getenv "SEGFAULT_SIGNALS") "bus abrt segv")
 ;; (setf (getenv "LD_PRELOAD") "/home/apfel/.guix-profile/lib/libSegFault.so")
