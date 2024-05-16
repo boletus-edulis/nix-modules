@@ -24,7 +24,7 @@
 			    elpy-module-pyvenv
 			    elpy-module-yasnippet
 			    elpy-module-django)))
-  :hook (python-mode-hook)
+  :hook python-mode-hook
   :config
   (leaf jedi
     :ensure t)
@@ -42,10 +42,7 @@
 	   (flycheck-clang-warnings . '("all" "extra"))
 	   (flycheck-gcc-pedantic . t)
 	   (flycheck-gcc-warnings . '("all" "extra")))
-  :hook (emacs-lisp-mode-hook
-	 lisp-interaction-mode-hook
-	 c-mode-hook
-	 elpy-mode-hook)
+  :hook prog-mode-hook
   :config
   (leaf flycheck-elsa
     :ensure t
@@ -63,7 +60,7 @@
 
 (leaf company-prescient
   :ensure t
-  :hook (company-mode-hook company-prescient-mode))
+  :hook (company-mode-hook . company-prescient-mode))
 
 (leaf company
   :ensure t
@@ -76,12 +73,16 @@
 (leaf ivy-prescient
   :ensure t
   :custom ((ivy-prescient-enable-filtering . nil))
-  :hook (company-mode-hook ivy-prescient-mode))
+  :hook (company-mode-hook . ivy-prescient-mode))
 
 (leaf ivy
   :ensure t
   :custom ((ivy-re-builders-alist . '((t . ivy--regex-fuzzy))))
-  :hook (after-init-hook ivy-mode))
+  :hook (after-init-hook . ivy-mode))
+
+(leaf cargo-mode
+  :ensure t
+  :hook rust-mode-hook rustic-mode-hook)
 
 (leaf rustic
   :ensure t
@@ -104,7 +105,10 @@
   (setq mode-line-compact t))
 
 (leaf rust-auto-use :ensure t)
-(leaf lsp-mode :ensure t)
+
+(leaf lsp-mode
+  :ensure t
+  :hook (prog-mode-hook . lsp-mode))
 
 (leaf lsp-nix
   :config
@@ -124,3 +128,9 @@
   :ensure t
   :commands lsp-deferred
   :hook ((nix-mode-hook . lsp-deferred)))
+
+(leaf yaml-mode
+  :ensure t)
+
+(leaf yasnippet-capf
+  :ensure t)
