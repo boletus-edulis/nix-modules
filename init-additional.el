@@ -80,9 +80,9 @@
   :custom ((ivy-re-builders-alist . '((t . ivy--regex-fuzzy))))
   :hook after-init-hook)
 
-(leaf cargo-mode
-  :ensure t
-  :hook ((rust-mode-hook rustic-mode-hook) . cargo-minor-mode)
+;;(leaf cargo-mode
+;;  :ensure t
+;;  :hook ((rust-mode-hook rustic-mode-hook) . cargo-minor-mode)
 
 (leaf rustic
   :ensure t
@@ -101,10 +101,9 @@
     (whitespace-line-column . 120)
     (lsp-inlay-hint-enable . t)
     )
-  :config
+  :mode "\\.rs\\'"
   ;;(setq mode-line-compact t)
   )
-(setcdr (assoc "\\.rs\\'" auto-mode-alist) 'rustic-mode)
 
 (leaf rust-auto-use :ensure t)
 
