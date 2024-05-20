@@ -47,7 +47,7 @@
 
     hydraJobs = {
       dummySystem = inputs.nixpkgs.lib.customisation.hydraJob
-        self.nixosConfigurations.dummySystem.config.system.build.toplevel;
+        self.nixosConfigurations.dummySystem.config.system.build.nixos-rebuild;
     };
   };
 }
