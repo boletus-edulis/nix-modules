@@ -46,8 +46,10 @@
     };
 
     hydraJobs = {
-      dummySystem = inputs.nixpkgs.lib.customisation.hydraJob
+      dummySystem-rebuild = inputs.nixpkgs.lib.customisation.hydraJob
         self.nixosConfigurations.dummySystem.config.system.build.nixos-rebuild;
+      dummySystem-toplevel = inputs.nixpkgs.lib.customisation.hydraJob
+        self.nixosConfigurations.dummySystem.config.system.build.toplevel;
     };
   };
 }
