@@ -91,6 +91,10 @@
       programs.alacritty = {
         enable = true;
         settings = {
+          window = {
+            decorations = "None";
+            opacity = 0.7;
+          };
           colors =  {
             "draw_bold_text_with_bright_colors" = false;
           };
@@ -98,6 +102,9 @@
             TERM = "xterm-256color";
             COLORTERM = "true";
             #WINIT_X11_SCALE_FACTOR = "1.0";
+          };
+          scrolling = {
+            history = 100000;
           };
           font = {
             size = 14;
