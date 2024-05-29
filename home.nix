@@ -28,12 +28,6 @@
           epkgs.vterm epkgs.treesit-grammars.with-all-grammars
         ];
       };
-      services.emacs = {
-        enable = true;
-        defaultEditor = true;
-        startWithUserSession = true;
-        client.arguments = [ "-nw" ];
-      };
       home.file.emacs-init-el = {
         enable = true;
         target = ".emacs.d/init.el";
