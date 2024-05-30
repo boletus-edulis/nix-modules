@@ -70,18 +70,12 @@
   :hook (emacs-startup-hook . global-company-mode)
   :custom ((company-idle-delay . 0)))
 
-(leaf ivy-prescient
+(leaf helm
   :ensure t
-  :custom ((ivy-prescient-enable-filtering . nil))
-  :hook company-mode-hook)
-
-(leaf ivy
-  :ensure t
-  :custom ((ivy-re-builders-alist . '((t . ivy--regex-fuzzy))))
-  :hook after-init-hook)
-
-(leaf counsel
-  :ensure t
+  :config
+  (global-set-key (kbd "M-x") #'helm-M-x)
+  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+  (global-set-key (kbd "C-x C-f") #'helm-find-files)
   :hook after-init-hook)
 
 ;;(leaf cargo-mode
