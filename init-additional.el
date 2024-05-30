@@ -80,6 +80,10 @@
   :custom ((ivy-re-builders-alist . '((t . ivy--regex-fuzzy))))
   :hook after-init-hook)
 
+(leaf counsel
+  :ensure t
+  :hook after-init-hook)
+
 ;;(leaf cargo-mode
 ;;  :ensure t
 ;;  :hook ((rust-mode-hook rustic-mode-hook) . cargo-minor-mode)
