@@ -70,14 +70,6 @@
   :hook (emacs-startup-hook . global-company-mode)
   :custom ((company-idle-delay . 0)))
 
-(leaf helm
-  :ensure t
-  :config
-  (global-set-key (kbd "M-x") #'helm-M-x)
-  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-  (global-set-key (kbd "C-x C-f") #'helm-find-files)
-  :hook after-init-hook)
-
 ;;(leaf cargo-mode
 ;;  :ensure t
 ;;  :hook ((rust-mode-hook rustic-mode-hook) . cargo-minor-mode)
