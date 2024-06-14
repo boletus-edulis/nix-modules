@@ -41,6 +41,7 @@
 
     services.openssh.enable = true;
     services.logrotate.enable = true;
+    services.fwupd.enable = true;
 
     documentation.dev.enable = true;
     documentation.man.generateCaches = true;
