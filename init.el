@@ -1,4 +1,7 @@
 (eval-and-compile
+  (setenv "LSP_USE_PLISTS" "true")
+  (setq lsp-use-plists t)
+
   (customize-set-variable
    'package-archives '(("org" . "https://orgmode.org/elpa/")
                        ("melpa" . "https://melpa.org/packages/")

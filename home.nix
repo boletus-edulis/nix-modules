@@ -18,7 +18,7 @@
       };
       home.packages = with pkgs; [
         atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
-        nftables tcpdump gdb
+        nftables tcpdump gdb emacs-lsp-booster
       ];
       home.stateVersion = "23.11";
       programs.emacs = {
