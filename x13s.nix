@@ -105,8 +105,8 @@
     cpkgs.x13s-firmware
   ];
 
-  hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
     vaapiVdpau
     libvdpau-va-gl
   ];
