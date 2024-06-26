@@ -25,6 +25,8 @@
       desktopX11 = import ./desktopX11.nix;
 
       ribes-uva-crispa = import ./x13s.nix;
+
+      simple-router = import ./simple-router.nix;
     };
 
     nixosConfigurations.dummySystem = nixpkgs.lib.nixosSystem rec {
