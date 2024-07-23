@@ -73,7 +73,7 @@
 
   services.udev.extraRules = ''
     # wifi mac address
-    ACTION=="add", SUBSYSTEM=="net", KERNELS=="0006:01:00.0", RUN+="ip link set dev $name address 00:00:af:1e:ee:ef"
+    ACTION=="add", SUBSYSTEM=="net", KERNELS=="0006:01:00.0", RUN+="${pkgs.iproute2}/bin/ip link set dev $name address 00:00:af:1e:ee:ef"
     # libcamera access to dma_heaps unresolved
     ACTION=="add", SUBSYSTEM=="dma_heap", KERNEL=="linux,cma", GROUP="video", MODE="0660"
     ACTION=="add", SUBSYSTEM=="dma_heap", KERNEL=="system", GROUP="video", MODE="0660"
