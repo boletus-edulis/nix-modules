@@ -10,11 +10,11 @@
         xterm.enable = false;
         xfce = {
           enable = true;
-          #noDesktop = false;
-          #enableXfwm = false;
+          noDesktop = false;
+          enableXfwm = false;
         };
       };
-      #windowManager.stumpwm.enable = true;
+      windowManager.stumpwm.enable = true;
       displayManager.lightdm = {
         enable = true;
         greeters = {
@@ -23,7 +23,7 @@
         };
       };
     };
-    #services.displayManager.defaultSession = "xfce+stumpwm";
+    services.displayManager.defaultSession = "xfce+stumpwm";
     services.printing.enable = true;
     services.avahi.enable = true;
     # Important to resolve .local domains of printers, otherwise you get an error
