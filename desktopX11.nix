@@ -6,15 +6,15 @@
     programs.dconf.enable = true;
     services.xserver = {
       enable = true;
-      #desktopManager = {
-      #  xterm.enable = false;
-      #  xfce = {
-      #    enable = true;
-      #    noDesktop = false;
-      #    enableXfwm = false;
-      #  };
-      #};
-      windowManager.stumpwm.enable = true;
+      desktopManager = {
+        xterm.enable = false;
+        xfce = {
+          enable = true;
+          #noDesktop = false;
+          #enableXfwm = false;
+        };
+      };
+      #windowManager.stumpwm.enable = true;
       displayManager.lightdm = {
         enable = true;
         greeters = {
