@@ -6,14 +6,14 @@
     programs.dconf.enable = true;
     services.xserver = {
       enable = true;
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = false;
-          enableXfwm = false;
-        };
-      };
+      #desktopManager = {
+      #  xterm.enable = false;
+      #  xfce = {
+      #    enable = true;
+      #    noDesktop = false;
+      #    enableXfwm = false;
+      #  };
+      #};
       windowManager.stumpwm.enable = true;
       displayManager.lightdm = {
         enable = true;
@@ -23,7 +23,7 @@
         };
       };
     };
-    services.displayManager.defaultSession = "xfce+stumpwm";
+    #services.displayManager.defaultSession = "none+stumpwm";
     services.printing.enable = true;
     services.avahi.enable = true;
     # Important to resolve .local domains of printers, otherwise you get an error
