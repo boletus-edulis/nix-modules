@@ -158,3 +158,7 @@
 
 (leaf yasnippet-capf
   :ensure t)
+
+(leaf ispell
+  :custom ((ispell-program-name . "hunspell")))
+

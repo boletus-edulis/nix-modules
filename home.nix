@@ -15,10 +15,25 @@
         enable = true;
         historySize = -1;
         historyFileSize = -1;
+        bashrcExtra = let
+          dicts = [
+            pkgs.hunspellDicts.de-de
+            pkgs.hunspellDicts.de_DE
+            pkgs.hunspellDicts.en-us
+            pkgs.hunspellDicts.en_US
+            pkgs.hunspellDictsChromium.de-de
+            pkgs.hunspellDictsChromium.de_DE
+            pkgs.hunspellDictsChromium.en-us
+            pkgs.hunspellDictsChromium.en_US
+          ];
+          buildPath = dict: "${dict}/share/hunspell";
+        in ''
+          export DICPATH=${builtins.concatStringsSep ":" (builtins.map buildPath dicts)}
+        '';
       };
       home.packages = with pkgs; [
         atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
-        nftables tcpdump gdb emacs-lsp-booster ispell
+        nftables tcpdump gdb emacs-lsp-booster ispell hunspell
       ];
       home.stateVersion = "23.11";
       programs.emacs = {
