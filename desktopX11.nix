@@ -7,25 +7,25 @@
     services.xserver = {
       enable = true;
       desktopManager = {
-        cinnamon.enable = true;
+        #cinnamon.enable = true;
 
-        #xterm.enable = false;
-        #xfce = {
-        #  enable = true;
-        #  noDesktop = false;
-        #  enableXfwm = false;
-        #};
+        xterm.enable = false;
+        xfce = {
+          enable = true;
+          noDesktop = false;
+          enableXfwm = false;
+        };
 
       };
 
-      #windowManager.stumpwm.enable = true;
-      #displayManager.lightdm = {
-      #  enable = true;
-      #  greeters = {
-      #    gtk.enable = true;
-      #    gtk.theme.name = "Adwaita-dark";
-      #  };
-      #};
+      windowManager.stumpwm.enable = true;
+      displayManager.lightdm = {
+        enable = true;
+        greeters = {
+          gtk.enable = true;
+          gtk.theme.name = "Adwaita-dark";
+        };
+      };
 
     };
     #services.displayManager.defaultSession = "none+stumpwm";
