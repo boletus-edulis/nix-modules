@@ -39,7 +39,11 @@
       keyMap = "us";
     };
 
-    services.openssh.enable = true;
+    services.openssh = {
+      enable = true;
+      settings.X11Forwarding = true;
+    };
+
     services.logrotate.enable = true;
     services.fwupd.enable = true;
 
