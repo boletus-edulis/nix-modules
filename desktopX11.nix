@@ -3,6 +3,20 @@
 {
   options = {};
   config = {
+    nixpkgs.overlays = [
+      (final: prev: {
+        sbclPackages = prev.sbclPackages.overrideScope (self: super: {
+          clx = super.clx.overrideAttrs {
+            version = "0.7.6";
+            src = prev.fetchzip {
+              url = "https://github.com/sharplispers/clx/archive/refs/tags/0.7.6.tar.gz";
+              sha256 = "1p3rp97rqsznawi62im7hzxjxfv1b46h2hzj568kpks7lkvg8ag2";
+            };
+          };
+        });
+      })
+    ];
+
     programs.dconf.enable = true;
     services.xserver = {
       enable = true;
