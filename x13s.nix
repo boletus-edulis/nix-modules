@@ -83,6 +83,35 @@
     ACTION=="add", SUBSYSTEM=="dma_heap", KERNEL=="system", GROUP="video", MODE="0660"
   '';
 
+  services.pipewire.extraConfig.pipewire = {
+    "10-fix-crackling" = {
+      "pulse.properties" = {
+        "pulse.min.req" = "1024/48000";
+        "pulse.min.frag" = "1024/48000";
+        "pulse.min.quantum" = "1024/48000";
+      };
+    };
+    "11-disable-suspend" = {
+      "monitor.alsa.rules" = [
+        {
+          "matches" = [
+            { # Matches all sources
+              "node.name" = "~alsa_input.*";
+            }
+            { # Matches all sinks
+              "node.name" = "~alsa_output.*";
+            }
+          ];
+          "actions" = {
+            "update-props" = {
+              "session.suspend-timeout-seconds" = 0;
+            };
+          };
+        }
+      ];
+    };
+  };
+
   networking.hostName = "ribes-uva-crispa";
   networking.networkmanager.enable = true;
   networking.nftables.enable = true;
