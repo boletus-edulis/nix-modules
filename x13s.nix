@@ -27,6 +27,10 @@
     }/lib/firmware" "arm64.nopauth"
   ];
 
+  boot.blacklistedKernelModules = [
+    "camcc_sc8280xp"
+  ];
+
   boot.initrd = let
     modules = [ "nvme" "phy_qcom_qmp_pcie" "pcie_qcom" "phy_qcom_qmp_ufs" "ufs_qcom" "i2c_hid_of"
                 "i2c_qcom_geni" "leds_qcom_lpg" "pwm_bl" "qrtr" "pmic_glink_altmode" "gpio_sbu_mux"
