@@ -24,6 +24,8 @@
       wayland = import ./wayland.nix;
       desktopX11 = import ./desktopX11.nix;
 
+      base-vm-gui = import ./base-vm-hw.nix;
+
       ribes-uva-crispa = import ./x13s.nix;
 
       simple-router = import ./simple-router.nix;

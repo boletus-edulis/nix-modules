@@ -6,7 +6,7 @@
     nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
     users.users."${username}" = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "libvirtd" "podman" "video" "rtkit" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "podman" "video" "rtkit" ];
     };
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
