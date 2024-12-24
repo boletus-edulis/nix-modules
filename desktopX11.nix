@@ -102,8 +102,8 @@
         source = ./init.lisp;
       };
       home.keyboard = {
-        layout = "us";
-        variant = "altgr-intl";
+        xkb.layout = "us";
+        xkb.variant = "alt-intl";
       };
       gtk.enable = true;
       programs.alacritty = {

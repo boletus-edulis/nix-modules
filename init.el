@@ -24,7 +24,9 @@
   (leaf custom-file
     :config
     (setq custom-file "~/.emacs.d/custom.el")
-    (load custom-file))
+    (condition-case nil
+        (load custom-file)
+      (error nil)))
 
   (leaf custom-set-faces
     :config
