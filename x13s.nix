@@ -60,8 +60,8 @@
     wantedBy = [ "multi-user.target" ];
   };
 
-  virtualisation.libvirtd.enable = true;
-  virtualisation.waydroid.enable = true;
+  #virtualisation.libvirtd.enable = true;
+  #virtualisation.waydroid.enable = true;
 
   virtualisation.podman.enable = true;
   virtualisation.podman.autoPrune.enable = true;
