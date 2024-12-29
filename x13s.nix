@@ -15,7 +15,7 @@
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
-    useOSProber = true;
+    #useOSProber = true;
     device = "nodev";
     extraPerEntryConfig = "devicetree ${builtins.toString cpkgs.linux_x13s_6_12}/dtbs/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
   };
