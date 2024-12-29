@@ -63,8 +63,8 @@
   #virtualisation.libvirtd.enable = true;
   #virtualisation.waydroid.enable = true;
 
-  virtualisation.podman.enable = true;
-  virtualisation.podman.autoPrune.enable = true;
+  #virtualisation.podman.enable = true;
+  #virtualisation.podman.autoPrune.enable = true;
 
   services.tlp = {
     enable = true;
@@ -126,8 +126,8 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e1c8ea9d-82b1-4e5a-a0f1-be1a5d099160";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/6974bc45-7ba8-4be9-94a5-cfa4a4ab320c";
+      fsType = "btrfs";
       options = [ "noatime" "nodiratime" "discard" ];
     };
 
