@@ -15,7 +15,7 @@
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, emacs-overlay, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, emacs-overlay, hydra-test, ... }@inputs: {
     nixosModules = {
       enable-unfree = import ./enable-unfree.nix;
 
@@ -31,13 +31,15 @@
       simple-router = import ./simple-router.nix;
     };
 
+    testpackages = hydra-test.packages.aarch64-linux;
+
     nixosConfigurations.dummySystem = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
       specialArgs = {
         inherit inputs;
         inherit system;
         username = "Us0r";
-        cpkgs = inputs.hydra-test.packages.aarch64-linux;
+        cpkgs = hydra-test.packages.aarch64-linux;
       };
       modules = [
         home-manager.nixosModules.home-manager

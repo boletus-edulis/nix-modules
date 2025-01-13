@@ -89,7 +89,7 @@
         pkgs.xdg-desktop-portal-gtk
       ];
       wlr.enable = true;
-      configPackages = [ pkgs.gnome.gnome-session ];
+      configPackages = [ pkgs.gnome-session ];
     };
 
     # Enable sound with pipewire.
