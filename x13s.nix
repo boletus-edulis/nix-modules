@@ -19,7 +19,7 @@
     device = "nodev";
     extraPerEntryConfig = "devicetree ${builtins.toString cpkgs.linux_x13s_6_12}/dtbs/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
   };
-  boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s_6_12;
+  boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s_6_12_steev;
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
     "clk_ignore_unused" "pd_ignore_unused" "firmware_class.path=${
