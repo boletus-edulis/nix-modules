@@ -83,7 +83,7 @@
     (lsp-rust-analyzer-lens-references-trait-enable . t)
     (lsp-rust-analyzer-hover-actions-references-enable . t)
     (lsp-rust-analyzer-inlayHints-bindingModeHints-enable . t)
-    (lsp-rust-analyzer-rustc-source . "discover") ;; find rustc-dev in rust-src
+    ;;(lsp-rust-analyzer-rustc-source . "discover") ;; find rustc-dev in rust-src
     (rustic-format-trigger . 'on-save)
     (rustic-rustfmt-args . "--edition 2021")
     (rustic-rustfmt-config-alist . ((max_width . 120)))
