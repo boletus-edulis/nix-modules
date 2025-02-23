@@ -24,15 +24,19 @@
 			    elpy-module-pyvenv
 			    elpy-module-yasnippet
 			    elpy-module-django)))
-  :hook python-mode-hook
+  :hook ((python-mode-hook . elpy-mode)
+         (elpy-mode-hook . (lambda ()
+	                     (add-hook 'before-save-hook
+			               'elpy-black-fix-code nil t)))
   :config
   (leaf jedi
     :ensure t)
   (elpy-enable)
-  (add-hook 'elpy-mode-hook
-	    (lambda ()
-	      (add-hook 'before-save-hook
-			'elpy-black-fix-code nil t))))
+;;  (add-hook 'elpy-mode-hook
+;;	    (lambda ()
+;;	      (add-hook 'before-save-hook
+;;			'elpy-black-fix-code nil t)))
+  )
 
 (leaf flycheck
   :ensure t

@@ -17,9 +17,9 @@
     efiSupport = true;
     #useOSProber = true;
     device = "nodev";
-    extraPerEntryConfig = "devicetree ${builtins.toString cpkgs.linux_x13s_6_12}/dtbs/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
+    extraPerEntryConfig = "devicetree ${builtins.toString cpkgs.linux_x13s_6_13_steev}/dtbs/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
   };
-  boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s_6_12_steev;
+  boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s_6_13_steev;
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
     "clk_ignore_unused" "pd_ignore_unused" "firmware_class.path=${
@@ -111,6 +111,9 @@
       ];
     };
   };
+
+  systemd.network.enable = true;
+  networking.useNetworkd = true;
 
   networking.hostName = "ribes-uva-crispa";
   networking.networkmanager.enable = true;
