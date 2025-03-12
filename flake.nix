@@ -21,7 +21,7 @@
 
       baseline-configuration = import ./base-configuration.nix;
       base-home = import ./home.nix;
-      wayland = import ./wayland.nix;
+      #wayland = import ./wayland.nix;
       desktopX11 = import ./desktopX11.nix;
 
       base-vm-gui = import ./base-vm-hw.nix;
@@ -47,7 +47,7 @@
         self.nixosModules.enable-unfree
         self.nixosModules.ribes-uva-crispa
         self.nixosModules.base-home
-        self.nixosModules.wayland
+        self.nixosModules.desktopX11
       ];
     };
 
