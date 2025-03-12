@@ -80,7 +80,7 @@
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.packages = with pkgs; [
-        swaylock helvum imhex flatpak virt-manager pavucontrol okular remmina
+        swaylock helvum imhex flatpak virt-manager pavucontrol kdePackages.okular remmina
         thunderbird firefox signal-desktop mumble chromium kdePackages.skanlite
       ];
       home.pointerCursor = {
