@@ -78,73 +78,80 @@
       cpkgs.iosevka-term
     ];
 
-    home-manager.users."${username}" = { pkgs, config, ... }: {
-      home.packages = with pkgs; [
-        swaylock helvum imhex flatpak virt-manager pavucontrol kdePackages.okular remmina
-        thunderbird firefox signal-desktop mumble chromium kdePackages.skanlite
-      ];
-      home.pointerCursor = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
-        size = 24;
-        gtk.enable = true;
-        x11 = {
+    home-manager.users."${username}" = { pkgs, config, ... }:
+      let
+        mumble_wrapped = pkgs.mumble.overrideAttrs (oldAttrs: {
+          dontWrapQtApps = false;
+          dontPatchELF = true;
+          nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
+        });
+      in {
+        home.packages = with pkgs; [
+          swaylock helvum imhex flatpak virt-manager pavucontrol kdePackages.okular remmina
+          thunderbird firefox signal-desktop mumble_wrapped chromium kdePackages.skanlite
+        ];
+        home.pointerCursor = {
+          name = "Adwaita";
+          package = pkgs.adwaita-icon-theme;
+          size = 24;
+          gtk.enable = true;
+          x11 = {
+            enable = true;
+            defaultCursor = "Adwaita";
+          };
+        };
+        home.sessionVariables = {
+          GDK_CORE_DEVICE_EVENTS = "1";
+        };
+        home.file.stumpwm-init-el = {
           enable = true;
-          defaultCursor = "Adwaita";
+          target = ".stumpwm.d/init.lisp";
+          source = ./init.lisp;
         };
-      };
-      home.sessionVariables = {
-        GDK_CORE_DEVICE_EVENTS = "1";
-      };
-      home.file.stumpwm-init-el = {
-        enable = true;
-        target = ".stumpwm.d/init.lisp";
-        source = ./init.lisp;
-      };
-      home.keyboard = {
-        xkb.layout = "us";
-        xkb.variant = "alt-intl";
-      };
-      gtk.enable = true;
-      programs.alacritty = {
-        enable = true;
-        settings = {
-          #window = { # the cool ...
-          #decorations = "None";
-          #opacity = 0.7;
-          #};
-          colors = {
-            "draw_bold_text_with_bright_colors" = false;
-          };
-          env = {
-            TERM = "xterm-256color";
-            COLORTERM = "true";
-            #WINIT_X11_SCALE_FACTOR = "1.0";
-          };
-          scrolling = {
-            history = 100000;
-          };
-          font = {
-            size = 14;
-            bold = {
-              family = "Iosevka Term";
-              style = "Bold";
+        home.keyboard = {
+          xkb.layout = "us";
+          xkb.variant = "alt-intl";
+        };
+        gtk.enable = true;
+        programs.alacritty = {
+          enable = true;
+          settings = {
+            #window = { # the cool ...
+            #decorations = "None";
+            #opacity = 0.7;
+            #};
+            colors = {
+              "draw_bold_text_with_bright_colors" = false;
             };
-            bold_italic = {
-              family = "Iosevka Term";
-              style = "Bold Italic";
+            env = {
+              TERM = "xterm-256color";
+              COLORTERM = "true";
+              #WINIT_X11_SCALE_FACTOR = "1.0";
             };
-            italic = {
-              family = "Iosevka Term";
-              style = "Italic";
+            scrolling = {
+              history = 100000;
             };
-            normal = {
-              family = "Iosevka Term";
-              style = "Regular";
+            font = {
+              size = 14;
+              bold = {
+                family = "Iosevka Term";
+                style = "Bold";
+              };
+              bold_italic = {
+                family = "Iosevka Term";
+                style = "Bold Italic";
+              };
+              italic = {
+                family = "Iosevka Term";
+                style = "Italic";
+              };
+              normal = {
+                family = "Iosevka Term";
+                style = "Regular";
+              };
             };
           };
         };
       };
-    };
   };
 }
