@@ -71,6 +71,36 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+      extraConfig.pipewire = {
+        "10-fix-crackling" = {
+          "pulse.properties" = {
+            "pulse.min.req" = "1024/48000";
+            "pulse.min.frag" = "1024/48000";
+            "pulse.min.quantum" = "1024/48000";
+          };
+        };
+        "11-disable-suspend" = {
+          "monitor.alsa.rules" = [
+            {
+              "matches" = [
+                { # Matches all sources
+                  "node.name" = "~alsa_input.*";
+                }
+                { # Matches all sinks
+                  "node.name" = "~alsa_output.*";
+                }
+              ];
+              "actions" = {
+                "update-props" = {
+                  "session.suspend-timeout-seconds" = 0;
+#                 "api.alsa.headroom" = 1024;
+#	                "api.alsa.period-size" = 128;
+                };
+              };
+            }
+          ];
+        };
+      };
     };
 
     fonts.packages = [
@@ -78,17 +108,10 @@
       cpkgs.iosevka-term
     ];
 
-    home-manager.users."${username}" = { pkgs, config, ... }:
-      let
-        mumble_wrapped = pkgs.mumble.overrideAttrs (oldAttrs: {
-          dontWrapQtApps = false;
-          dontPatchELF = true;
-          nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
-        });
-      in {
+    home-manager.users."${username}" = { pkgs, config, ... }: {
         home.packages = with pkgs; [
           swaylock helvum imhex flatpak virt-manager pavucontrol kdePackages.okular remmina
-          thunderbird firefox signal-desktop mumble_wrapped chromium kdePackages.skanlite
+          thunderbird firefox signal-desktop mumble chromium kdePackages.skanlite
         ];
         home.pointerCursor = {
           name = "Adwaita";
