@@ -63,7 +63,6 @@
 
     # audio
     environment.systemPackages = with pkgs; [ alsa-ucm-conf ];
-    security.rtkit.enable = true;
     hardware.pulseaudio.enable = false;
     services.pipewire = {
       enable = true;

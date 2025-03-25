@@ -73,9 +73,6 @@
     # home manager
     security.polkit.enable = true;
 
-    # audio
-    security.rtkit.enable = true;
-
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
