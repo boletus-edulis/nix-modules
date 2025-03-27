@@ -149,7 +149,7 @@
         (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
       (custom-theme-set-variables
        'use-package '(lsp-nix-nil-formatter
-                      ["nixpkgs-fmt"] nil nil "Customized with use-package lsp-nix")))
+                      ["nixfmt-rfc-style"] nil nil "Customized with use-package lsp-nix")))
     (require 'lsp-nix nil nil)))
 
 (leaf nix-mode
