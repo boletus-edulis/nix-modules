@@ -152,10 +152,10 @@
                       ["nixfmt-rfc-style"] nil nil "Customized with use-package lsp-nix")))
     (require 'lsp-nix nil nil)))
 
-(leaf nix-mode
-  :ensure t
-  :commands lsp-deferred
-  :hook ((nix-mode-hook . lsp-deferred)))
+(leaf nix-ts-mode
+  :ensure t)
+;;  :commands lsp-deferred
+;;  :hook ((nix-mode-hook . lsp-deferred)))
 
 (leaf yaml-mode
   :ensure t)
