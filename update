@@ -1,0 +1,7 @@
+#!/run/current-system/sw/bin/env bash
+
+cd /home/Us0r/sources/nix-modules/
+/home/Us0r/.nix-profile/bin/git fetch -a
+/home/Us0r/.nix-profile/bin/git checkout -f origin/main
+/run/current-system/sw/bin/nix flake update --commit-lock-file
+/home/Us0r/.nix-profile/bin/git push origin HEAD:main
