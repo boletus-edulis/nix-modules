@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-lib.url = "github:NixOS/nixpkgs/nixos-unstable?dir=lib";
 
     hydra-test.url = "github:boletus-edulis/hydra-test";
     hydra-test.inputs.nixpkgs.follows = "nixpkgs";
