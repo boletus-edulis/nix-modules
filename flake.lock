@@ -51,11 +51,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741352980,
-        "narHash": "sha256-+u2UunDA4Cl5Fci3m7S643HzKmIDAe+fiXrLqYsR2fs=",
+        "lastModified": 1743550720,
+        "narHash": "sha256-hIshGgKZCgWh6AYJpJmRgFdR3WUbkY04o82X05xqQiY=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "f4330d22f1c5d2ba72d3d22df5597d123fdb60a9",
+        "rev": "c621e8422220273271f52058f618c94e405bb0f5",
         "type": "github"
       },
       "original": {
@@ -99,11 +99,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1743528005,
-        "narHash": "sha256-aU4lKoSE3sKOoNgEbHQNlTV2kLavCbxYvPOzVJcN6TY=",
+        "lastModified": 1743550805,
+        "narHash": "sha256-lM8kbbX/nIx58rnzCXMn++ErevTwOYayQTP31D3YbgQ=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "30ad414ed61d019bf5af447c2406959541600f09",
+        "rev": "f8f1b1dbffe4b8d373d94140de0110b1e664e6a6",
         "type": "github"
       },
       "original": {
