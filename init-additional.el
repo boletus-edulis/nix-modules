@@ -16,6 +16,7 @@
 (leaf elpy
   :ensure t
   :custom ((elpy-rpc-backend . "jedi")
+	   (elpy-rpc-virtualenv-path . 'global)
 	   (elpy-rpc-python-command . "python3")
 	   (elpy-modules . (elpy-module-sane-defaults
 			    elpy-module-company
@@ -25,7 +26,7 @@
 			    elpy-module-yasnippet
 			    elpy-module-django)))
   :hook ((python-mode-hook . elpy-mode)
-         (elpy-mode-hook . (lambda ()
+         (elpy-mode-hook . '(lambda ()
 	                     (add-hook 'before-save-hook
 			               'elpy-black-fix-code nil t)))
   :config

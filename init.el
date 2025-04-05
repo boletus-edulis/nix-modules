@@ -76,5 +76,5 @@
   (load-theme 'modus-vivendi))
 
 (condition-case nil
-    (load-file "~/.emacs.d/init-real.el")
+    (load-file "~/.emacs.d/init-additional.el")
   (error nil))
