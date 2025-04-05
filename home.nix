@@ -48,11 +48,6 @@
         target = ".emacs.d/init.el";
         source = ./init.el;
       };
-      home.file.emacs-init-additional-el = {
-        enable = true;
-        target = ".emacs.d/init-additional.el";
-        source = ./init-additional.el;
-      };
     };
   };
 }
