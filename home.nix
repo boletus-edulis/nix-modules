@@ -9,6 +9,7 @@
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "podman" "video" "rtkit" ];
     };
 
+    home-manager.backupFileExtension = "backup";
     home-manager.users."${username}" = { pkgs, config, ... }: {
       nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
       programs.bash = {
