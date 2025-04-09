@@ -21,7 +21,7 @@
     services.xserver = {
       enable = true;
       desktopManager = {
-        #cinnamon.enable = true;
+        cinnamon.enable = true;
 
         xterm.enable = false;
         xfce = {
