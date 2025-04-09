@@ -35,10 +35,10 @@
       windowManager.stumpwm.enable = true;
       displayManager.lightdm = {
         enable = true;
-        greeters = {
-          gtk.enable = true;
-          gtk.theme.name = "Adwaita-dark";
-        };
+        #greeters = {
+        #  gtk.enable = true;
+        #  gtk.theme.name = "Adwaita-dark";
+        #};
       };
 
     };
