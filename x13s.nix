@@ -66,14 +66,15 @@
   #virtualisation.podman.enable = true;
   #virtualisation.podman.autoPrune.enable = true;
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      RUNTIME_PM_ON_AC = "on";
-      RUNTIME_PM_ON_BAT = "auto";
-      USB_AUTOSUSPEND = 1;
-    };
-  };
+  #services.tlp = {
+  #  enable = true;
+  #  settings = {
+  #    RUNTIME_PM_ON_AC = "on";
+  #    RUNTIME_PM_ON_BAT = "auto";
+  #    USB_AUTOSUSPEND = 1;
+  #  };
+  #};
+  services.power-profiles-daemon.enable = true;
 
   services.udev.extraRules = ''
     # wifi mac address
