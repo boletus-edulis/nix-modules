@@ -99,11 +99,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1744363205,
-        "narHash": "sha256-V8FW3x8nw+66VwNZpOsrYVAcV0LpfwqLpMePHa1DoNU=",
+        "lastModified": 1744372237,
+        "narHash": "sha256-avoTm+solkdm7HMVo10v/fCi5F6PCqASEi9uTaEOBPk=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "4c5dc6f5dd18af5885aaa36beb2caf4ee6c8b93e",
+        "rev": "3267309f26d1e0bedef4a8ff7e6acc5c52c404ce",
         "type": "github"
       },
       "original": {
@@ -199,11 +199,11 @@
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
-        "lastModified": 1744098102,
-        "narHash": "sha256-tzCdyIJj9AjysC3OuKA+tMD/kDEDAF9mICPDU7ix0JA=",
+        "lastModified": 1744232761,
+        "narHash": "sha256-gbl9hE39nQRpZaLjhWKmEu5ejtQsgI5TWYrIVVJn30U=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c8cd81426f45942bb2906d5ed2fe21d2f19d95b7",
+        "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
         "type": "github"
       },
       "original": {
