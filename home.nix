@@ -39,7 +39,8 @@
       home.stateVersion = "23.11";
       programs.emacs = {
         enable = true;
-        package = pkgs.emacs-git-nox;
+        #package = pkgs.emacs-git-nox;
+        package = pkgs.emacs-nox;
         extraPackages = epkgs: [
           epkgs.vterm epkgs.treesit-grammars.with-all-grammars
         ];
