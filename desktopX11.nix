@@ -103,8 +103,9 @@
     };
 
     fonts.packages = [
-      pkgs.iosevka
-      cpkgs.iosevka-term
+      pkgs.iosevka-bin
+      #cpkgs.iosevka-term
+      pkgs.font-awesome
     ];
 
     home-manager.users."${username}" = { pkgs, config, ... }: {

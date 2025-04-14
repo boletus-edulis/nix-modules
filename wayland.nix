@@ -100,8 +100,8 @@
     };
 
     fonts.packages = [
-      pkgs.iosevka
-      cpkgs.iosevka-term
+      pkgs.iosevka-bin
+      #cpkgs.iosevka-term
       pkgs.font-awesome
     ];
 
