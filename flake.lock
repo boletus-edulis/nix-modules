@@ -88,10 +88,8 @@
       "inputs": {
         "emacs-overlay": "emacs-overlay_2",
         "flake-parts": "flake-parts",
-        "linux-jhovold-6-12": "linux-jhovold-6-12",
-        "linux-jhovold-6-13": "linux-jhovold-6-13",
-        "linux-steeve-6-12": "linux-steeve-6-12",
         "linux-steeve-6-13": "linux-steeve-6-13",
+        "linux-steeve-6-14": "linux-steeve-6-14",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -99,68 +97,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1745289606,
-        "narHash": "sha256-N/doXCt73NC2E9VswHDkVsgTtTKgWm3Cq2qxKGI0GYk=",
+        "lastModified": 1745326427,
+        "narHash": "sha256-8nlbSvuOGX0DdC9VlPnkl2Kkzu7cb1QxwoSHVK20L58=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "356b7d7aa1f7b7c592674808884bbd3927bb1717",
+        "rev": "5dcbf2d40a9b66cdc6b3d77db869d05c9f9e1f65",
         "type": "github"
       },
       "original": {
         "owner": "boletus-edulis",
         "repo": "hydra-test",
         "type": "github"
-      }
-    },
-    "linux-jhovold-6-12": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1731933860,
-        "narHash": "sha256-F9PtGVeT3i6EYt3uNp5PaFKPXiWOe6T8Y5U5WzXHauE=",
-        "ref": "wip/sc8280xp-6.12",
-        "rev": "24dcd44a39079e920512fc280fa08907be2a6c31",
-        "revCount": 1311283,
-        "type": "git",
-        "url": "https://github.com/jhovold/linux"
-      },
-      "original": {
-        "ref": "wip/sc8280xp-6.12",
-        "type": "git",
-        "url": "https://github.com/jhovold/linux"
-      }
-    },
-    "linux-jhovold-6-13": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1736759316,
-        "narHash": "sha256-cNqR3H797YcCsHutwNGdV+u6T0AUh17TGev/LCqNCy8=",
-        "ref": "wip/sc8280xp-6.13-rc7",
-        "rev": "1ca98ace316a107b488b33959ce012b5875edbef",
-        "revCount": 1325229,
-        "type": "git",
-        "url": "https://github.com/jhovold/linux"
-      },
-      "original": {
-        "ref": "wip/sc8280xp-6.13-rc7",
-        "type": "git",
-        "url": "https://github.com/jhovold/linux"
-      }
-    },
-    "linux-steeve-6-12": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1743188294,
-        "narHash": "sha256-4wriqOBQE/EsDW1HuuvjK4/fJ3B5np2nGl76u46JDkk=",
-        "ref": "lenovo-x13s-linux-6.12.y",
-        "rev": "ab50d1502663d10a702beefe787456a79ac73d13",
-        "revCount": 1315885,
-        "type": "git",
-        "url": "https://github.com/steev/linux"
-      },
-      "original": {
-        "ref": "lenovo-x13s-linux-6.12.y",
-        "type": "git",
-        "url": "https://github.com/steev/linux"
       }
     },
     "linux-steeve-6-13": {
@@ -176,6 +123,23 @@
       },
       "original": {
         "ref": "lenovo-x13s-linux-6.13.y",
+        "type": "git",
+        "url": "https://github.com/steev/linux"
+      }
+    },
+    "linux-steeve-6-14": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744036413,
+        "narHash": "sha256-wNdiBZXHscgwDT6wthKx0QzPpTyvDRiVql7AbypiBPQ=",
+        "ref": "lenovo-x13s-linux-6.14.y",
+        "rev": "d04dfa54b40c1d5863811dec9980d55bb9d8d43e",
+        "revCount": 1337634,
+        "type": "git",
+        "url": "https://github.com/steev/linux"
+      },
+      "original": {
+        "ref": "lenovo-x13s-linux-6.14.y",
         "type": "git",
         "url": "https://github.com/steev/linux"
       }
