@@ -28,6 +28,8 @@
       ribes-uva-crispa = import ./x13s.nix;
 
       simple-router = import ./simple-router.nix;
+
+      emacs = import ./emacs.nix;
     };
 
     testpackages = hydra-test.packages.aarch64-linux;
