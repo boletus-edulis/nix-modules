@@ -73,7 +73,7 @@
     (treesit-auto-add-to-auto-mode-alist 'all)
     (global-treesit-auto-mode))
 
-  (load-theme 'modus-vivendi)
+  (load-theme 'modus-vivendi-tritanopia)
 
   (leaf doom-modeline
     :ensure t
