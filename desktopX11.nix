@@ -111,7 +111,7 @@
     home-manager.users."${username}" = { pkgs, config, ... }: {
         home.packages = with pkgs; [
           swaylock helvum imhex flatpak virt-manager pavucontrol kdePackages.okular remmina
-          thunderbird firefox signal-desktop mumble chromium kdePackages.skanlite
+          thunderbird firefox signal-desktop mumble chromium kdePackages.skanlite jami
         ];
         home.pointerCursor = {
           name = "Adwaita";
