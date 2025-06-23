@@ -89,6 +89,7 @@
         "emacs-overlay": "emacs-overlay_2",
         "flake-parts": "flake-parts",
         "linux-steeve-6-14": "linux-steeve-6-14",
+        "linux-steeve-6-15": "linux-steeve-6-15",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -96,11 +97,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1750671604,
-        "narHash": "sha256-T2EmX0N+RnFVJhnxWdyx9xRigbZzrDWB54VLa7kYkOE=",
+        "lastModified": 1750719234,
+        "narHash": "sha256-uEjm0+hejwWTeXKzevi89xgLGmLu3UVSmyCkzxT6o9U=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "2c748758cbbbc39490c35c49685ec10430cb628b",
+        "rev": "e0618336910ea1ddb9d6ff75e654854b4a68d227",
         "type": "github"
       },
       "original": {
@@ -122,6 +123,23 @@
       },
       "original": {
         "ref": "lenovo-x13s-linux-6.14.y",
+        "type": "git",
+        "url": "https://github.com/steev/linux"
+      }
+    },
+    "linux-steeve-6-15": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1750546022,
+        "narHash": "sha256-r3ZtQVuRUquJTMKNQjwr37qpU7817C9HZJfkhcON+Eg=",
+        "ref": "lenovo-x13s-linux-6.15.y",
+        "rev": "def0196d86b967f09db9deea445ee8bc0f150e78",
+        "revCount": 1354424,
+        "type": "git",
+        "url": "https://github.com/steev/linux"
+      },
+      "original": {
+        "ref": "lenovo-x13s-linux-6.15.y",
         "type": "git",
         "url": "https://github.com/steev/linux"
       }
