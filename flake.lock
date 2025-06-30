@@ -97,11 +97,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1751251806,
-        "narHash": "sha256-qeH8n+dOTH2RSXwyhihJ1964PK16ojrFsOEJaRUimQY=",
+        "lastModified": 1751257882,
+        "narHash": "sha256-H/qPuyv7T2SVea4gU0ejlvOCwlpZ006zYTTpPM+7rt4=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "faa360ced17cc6ce8a7a37c3acc71f76c10c8ea7",
+        "rev": "9fc96aef4d1b53c49f66ff98cc150d3c75294314",
         "type": "github"
       },
       "original": {
@@ -130,11 +130,11 @@
     "linux-steeve-6-15": {
       "flake": false,
       "locked": {
-        "lastModified": 1750546022,
-        "narHash": "sha256-r3ZtQVuRUquJTMKNQjwr37qpU7817C9HZJfkhcON+Eg=",
+        "lastModified": 1751069671,
+        "narHash": "sha256-p8BOEqr26tZGLL3bbBFS7eFe7oRcGepVcYw6KMn4NdU=",
         "ref": "lenovo-x13s-linux-6.15.y",
-        "rev": "def0196d86b967f09db9deea445ee8bc0f150e78",
-        "revCount": 1354424,
+        "rev": "2234e03108356180d03b88edc3588486ef80b7bb",
+        "revCount": 1355001,
         "type": "git",
         "url": "https://github.com/steev/linux"
       },
