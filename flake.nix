@@ -25,6 +25,8 @@
 
       desktopX11 = import ./desktopX11.nix;
 
+      desktop-werkstatt = import ./desktop-werkstatt.nix;
+
       base-vm-gui = import ./base-vm-hw.nix;
 
       ribes-uva-crispa = import ./x13s.nix;
