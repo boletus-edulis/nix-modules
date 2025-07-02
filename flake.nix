@@ -21,6 +21,8 @@
       baseline-configuration = import ./base-configuration.nix;
       base-home = import ./home.nix;
       #wayland = import ./wayland.nix;
+      desktop-general = import ./desktop-general.nix;
+
       desktopX11 = import ./desktopX11.nix;
 
       base-vm-gui = import ./base-vm-hw.nix;
