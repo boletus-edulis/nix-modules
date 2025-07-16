@@ -14,7 +14,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s.dtb";
-  hardware.deviceTree.package = "${builtins.toString cpkgs.linux_x13s}/dtbs/qcom";
+  hardware.deviceTree.package = lib.mkForce "${builtins.toString cpkgs.linux_x13s}/dtbs/qcom";
   hardware.deviceTree.enable = true;
 
   boot.loader.systemd-boot.enable = true;
