@@ -12,13 +12,25 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    #useOSProber = true;
-    device = "nodev";
-    extraPerEntryConfig = "devicetree ${builtins.toString cpkgs.linux_x13s}/dtbs/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
+
+  hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s.dtb";
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.installDeviceTree = true;
+  boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
+  boot.loader.systemd-boot.extraFiles = {
+    "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
+    "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
   };
+
+#  boot.loader.grub = {
+#    enable = true;
+#    efiSupport = true;
+#    #useOSProber = true;
+#    device = "nodev";
+#    extraPerEntryConfig = "devicetree ${builtins.toString cpkgs.linux_x13s}/dtbs/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
+#  };
+
   boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s;
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
