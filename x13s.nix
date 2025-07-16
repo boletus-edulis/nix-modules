@@ -13,7 +13,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  hardware.deviceTree.name = "qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
+  hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s.dtb";
+  hardware.deviceTree.package = "qcom";
+  hardware.deviceTree.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.installDeviceTree = true;
