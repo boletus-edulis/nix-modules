@@ -22,6 +22,7 @@
     "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
     "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
   };
+  boot.loader.systemd-boot.configurationLimit = 2;
 
 #  boot.loader.grub = {
 #    enable = true;
