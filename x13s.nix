@@ -23,6 +23,7 @@
   boot.loader.systemd-boot.extraFiles = {
     "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
     "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
+    "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
   };
   boot.loader.systemd-boot.configurationLimit = 2;
 
