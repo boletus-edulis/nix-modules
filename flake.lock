@@ -88,9 +88,7 @@
       "inputs": {
         "emacs-overlay": "emacs-overlay_2",
         "flake-parts": "flake-parts",
-        "linux-steeve-6-14": "linux-steeve-6-14",
         "linux-steeve-6-15": "linux-steeve-6-15",
-        "linux-steeve-6-16-rc5": "linux-steeve-6-16-rc5",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -98,34 +96,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1753204805,
-        "narHash": "sha256-vqS2xWRbjT/bfpNyvvxrRGEfBaZUXBfrj0q40HvgxwE=",
+        "lastModified": 1753208226,
+        "narHash": "sha256-zu4OftQuvVRYEnnwDvMPRlWEUA7SfQ3uhwmxnhJgp0E=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "4259eaf57a8e0df7dab22693cc7052dbdb802ae9",
+        "rev": "3cefeaa1e80e3c6c6287ee691fe4d401c7ab2584",
         "type": "github"
       },
       "original": {
         "owner": "boletus-edulis",
         "repo": "hydra-test",
         "type": "github"
-      }
-    },
-    "linux-steeve-6-14": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1749857649,
-        "narHash": "sha256-ujozd9GkN+wUX40Tr/ZL1TXM9PD/poFP033JtTeQMCM=",
-        "ref": "lenovo-x13s-linux-6.14.y",
-        "rev": "c30808d8321a7c577606712cdcb41e38ec2a2415",
-        "revCount": 1340779,
-        "type": "git",
-        "url": "https://github.com/steev/linux"
-      },
-      "original": {
-        "ref": "lenovo-x13s-linux-6.14.y",
-        "type": "git",
-        "url": "https://github.com/steev/linux"
       }
     },
     "linux-steeve-6-15": {
@@ -141,23 +122,6 @@
       },
       "original": {
         "ref": "lenovo-x13s-linux-6.15.y",
-        "type": "git",
-        "url": "https://github.com/steev/linux"
-      }
-    },
-    "linux-steeve-6-16-rc5": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1752103905,
-        "narHash": "sha256-gVnH8BNKLKXCoXbtUSEe0YqtDraixNeMUAeJhxgFBZI=",
-        "ref": "lenovo-x13s-6.16.0-rc5",
-        "rev": "8a7f181d5501fa73b17dcb76340908f033b61b88",
-        "revCount": 1368732,
-        "type": "git",
-        "url": "https://github.com/steev/linux"
-      },
-      "original": {
-        "ref": "lenovo-x13s-6.16.0-rc5",
         "type": "git",
         "url": "https://github.com/steev/linux"
       }
