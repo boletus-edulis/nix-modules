@@ -6,9 +6,8 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.binfmt.emulatedSystems = [
-    "x86_64-linux"
-  ];
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" "armv7l-linux" ];
+  boot.binfmt.preferStaticEmulators = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
