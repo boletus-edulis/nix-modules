@@ -36,4 +36,6 @@
     target = ".emacs.d/init.el";
     source = ./init.el;
   };
+
+  home.packages = with pkgs; [ ispell hunspell ];
 }
