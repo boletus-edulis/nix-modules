@@ -2,17 +2,14 @@
 
 let
   emacs = import ./emacs.nix { inherit config pkgs; };
-  home = (
-    lib.recursiveUpdate
-      {
-        packages = with pkgs; [
-          atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
-          nftables tcpdump gdb emacs-lsp-booster
-        ];
-        stateVersion = "23.11";
-      }
-      emacs.home
-  );
+  home = {
+    packages = with pkgs; [
+      atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
+      nftables tcpdump gdb emacs-lsp-booster
+    ] ++ emacs.home.packages;
+    inherit (emacs.home) file;
+    stateVersion = "23.11";
+  };
 in
 {
   options = {};
