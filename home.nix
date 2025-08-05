@@ -1,14 +1,18 @@
-{ pkgs, config, username, inputs, ... }:
+{ lib, pkgs, config, username, inputs, ... }:
 
 let
   emacs = import ./emacs.nix { inherit config pkgs; };
-  home = {
-    packages = with pkgs; [
-      atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
-      nftables tcpdump gdb emacs-lsp-booster
-    ];
-    stateVersion = "23.11";
-  } // emacs.home;
+  home = (
+    lib.recursiveUpdate
+      {
+        packages = with pkgs; [
+          atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
+          nftables tcpdump gdb emacs-lsp-booster
+        ];
+        stateVersion = "23.11";
+      }
+      emacs.home
+  );
 in
 {
   options = {};
