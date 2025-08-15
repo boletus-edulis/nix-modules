@@ -21,10 +21,12 @@
   boot.loader.systemd-boot.installDeviceTree = true;
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
   boot.loader.systemd-boot.extraFiles = {
-    "EFI/systemd/drivers/slbouncea64.efi" = "${cpkgs.slbounce}/slbounce.efi";
-    #"slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
-    #"sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
+    "EFI/systemd/drivers/slbounceaa64.efi" = "${cpkgs.slbounce}/slbounce.efi";
     "EFI/systemd/drivers/${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
+
+    "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
+    "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
+    "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
   };
   boot.loader.systemd-boot.configurationLimit = 10;
 
