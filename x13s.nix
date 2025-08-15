@@ -24,9 +24,9 @@
     "EFI/systemd/drivers/slbouncea64.efi" = "${cpkgs.slbounce}/slbounce.efi";
     #"slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
     #"sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
-    "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
+    "EFI/systemd/drivers/${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
   };
-  boot.loader.systemd-boot.configurationLimit = 2;
+  boot.loader.systemd-boot.configurationLimit = 10;
 
 #  boot.loader.grub = {
 #    enable = true;
