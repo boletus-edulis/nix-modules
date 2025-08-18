@@ -12,20 +12,20 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  specialisation.el2.inheritParentConfig = true;
-  specialisation.el2.configuration = {
-    hardware.deviceTree.name = lib.mkForce "sc8280xp-lenovo-thinkpad-x13s-el2.dtb";
-    boot.loader.systemd-boot.extraFiles = {
-      "EFI/systemd/drivers/slbounceaa64.efi" = "${cpkgs.slbounce}/slbounce.efi";
-      "EFI/systemd/drivers/${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
-
-      "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
-      "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
-      "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
-    };
+  specialisation.notel2.inheritParentConfig = true;
+  specialisation.notel2.configuration = {
+    hardware.deviceTree.name = lib.mkForce "sc8280xp-lenovo-thinkpad-x13s.dtb";
   };
 
-  hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s.dtb";
+  hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s-el2.dtb";
+  boot.loader.systemd-boot.extraFiles = {
+    "EFI/systemd/drivers/slbounceaa64.efi" = "${cpkgs.slbounce}/slbounce.efi";
+    "EFI/systemd/drivers/${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
+
+    "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
+    "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
+    "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
+  };
   hardware.deviceTree.package = lib.mkForce "${builtins.toString cpkgs.linux_x13s}/dtbs/qcom";
   hardware.deviceTree.enable = true;
 
