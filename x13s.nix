@@ -49,6 +49,7 @@
     kernelModules = modules;
     verbose = true;
     supportedFilesystems = { btrfs = true; };
+    extraFirmwarePaths = [ "qcom" ];
   };
 
   console = {
