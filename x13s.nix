@@ -33,10 +33,6 @@
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
     "clk_ignore_unused" "pd_ignore_unused" "arm64.nopauth"
-
-    "firmware_class.path=${
-      builtins.toString cpkgs.x13s-firmware
-    }/lib/firmware"
   ];
 
   boot.blacklistedKernelModules = [
@@ -163,9 +159,6 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 
   hardware.enableAllFirmware = lib.mkForce true;
-  hardware.firmware = lib.mkForce [
-    cpkgs.x13s-firmware
-  ];
 
   hardware.graphics.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
