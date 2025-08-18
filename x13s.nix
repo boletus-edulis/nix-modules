@@ -12,7 +12,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  #hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s.dtb";
   hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s-el2.dtb";
   hardware.deviceTree.package = lib.mkForce "${builtins.toString cpkgs.linux_x13s}/dtbs/qcom";
   hardware.deviceTree.enable = true;
@@ -28,22 +27,16 @@
     "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
     "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
   };
-  boot.loader.systemd-boot.configurationLimit = 10;
-
-#  boot.loader.grub = {
-#    enable = true;
-#    efiSupport = true;
-#    #useOSProber = true;
-#    device = "nodev";
-#    extraPerEntryConfig = "devicetree ${builtins.toString cpkgs.linux_x13s}/dtbs/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb";
-#  };
+  boot.loader.systemd-boot.configurationLimit = 5;
 
   boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s;
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
-    "clk_ignore_unused" "pd_ignore_unused" "firmware_class.path=${
+    "clk_ignore_unused" "pd_ignore_unused" "arm64.nopauth"
+
+    "firmware_class.path=${
       builtins.toString cpkgs.x13s-firmware
-    }/lib/firmware" "arm64.nopauth"
+    }/lib/firmware"
   ];
 
   boot.blacklistedKernelModules = [
