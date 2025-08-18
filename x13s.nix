@@ -45,10 +45,12 @@
   ];
 
   boot.initrd = let
-    modules = [ "nvme" "phy_qcom_qmp_pcie" "pcie_qcom" "phy_qcom_qmp_ufs" "ufs_qcom" "i2c_hid_of"
-                "i2c_qcom_geni" "leds_qcom_lpg" "pwm_bl" "qrtr" "pmic_glink_altmode" "gpio_sbu_mux"
-                "phy_qcom_qmp_combo" "gpucc_sc8280xp" "dispcc_sc8280xp" "phy_qcom_edp" "panel_edp"
-                "msm" ];
+    modules = [ "nvme" "phy_qcom_qmp_pcie"
+      #"pcie_qcom"
+      "phy_qcom_qmp_ufs" "ufs_qcom" "i2c_hid_of"
+      "i2c_qcom_geni" "leds_qcom_lpg" "pwm_bl" "qrtr" "pmic_glink_altmode" "gpio_sbu_mux"
+      "phy_qcom_qmp_combo" "gpucc_sc8280xp" "dispcc_sc8280xp" "phy_qcom_edp" "panel_edp"
+      "msm" ];
   in {
     availableKernelModules = modules;
     kernelModules = modules;
