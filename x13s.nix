@@ -34,28 +34,6 @@
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
 
-  boot.initrd.extraFirmwarePaths = [
-    "qcom/sc8280xp/SC8280XP-LENOVO-X13S-tplg.bin.zst"
-    "qcom/sc8280xp/LENOVO/21BX/qcvss8280.mbn.zst"
-    "qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn.zst"
-    "qcom/sc8280xp/LENOVO/21BX/qcdxkmsuc8280.mbn.zst"
-    "qcom/sc8280xp/LENOVO/21BX/qccdsp8280.mbn.zst"
-    "qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn.zst"
-
-    "qcom/sc8280xp/LENOVO/21BX/cdspr.jsn.zst"
-    "qcom/qcm6490/cdspr.jsn.zst"
-
-    "qcom/sc8280xp/LENOVO/21BX/battmgr.jsn.zst"
-    "qcom/qcm6490/battmgr.jsn.zst"
-
-    "qcom/sc8280xp/LENOVO/21BX/audioreach-tplg.bin.zst"
-
-    "qcom/sc8280xp/LENOVO/21BX/adspua.jsn.zst"
-    "qcom/qcm6490/adspua.jsn.zst"
-
-    "qcom/sc8280xp/LENOVO/21BX/adspr.jsn.zst"
-  ];
-
   boot.supportedFilesystems = [ "iso9660" "udf" ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -76,6 +54,27 @@
       "phy_qcom_qmp_combo" "gpucc_sc8280xp" "dispcc_sc8280xp" "phy_qcom_edp" "panel_edp"
       "msm" ];
   in {
+    extraFirmwarePaths = [
+      "qcom/sc8280xp/SC8280XP-LENOVO-X13S-tplg.bin.zst"
+      "qcom/sc8280xp/LENOVO/21BX/qcvss8280.mbn.zst"
+      "qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn.zst"
+      "qcom/sc8280xp/LENOVO/21BX/qcdxkmsuc8280.mbn.zst"
+      "qcom/sc8280xp/LENOVO/21BX/qccdsp8280.mbn.zst"
+      "qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn.zst"
+
+      "qcom/sc8280xp/LENOVO/21BX/cdspr.jsn.zst"
+      "qcom/qcm6490/cdspr.jsn.zst"
+
+      "qcom/sc8280xp/LENOVO/21BX/battmgr.jsn.zst"
+      "qcom/qcm6490/battmgr.jsn.zst"
+
+      "qcom/sc8280xp/LENOVO/21BX/audioreach-tplg.bin.zst"
+
+      "qcom/sc8280xp/LENOVO/21BX/adspua.jsn.zst"
+      "qcom/qcm6490/adspua.jsn.zst"
+
+      "qcom/sc8280xp/LENOVO/21BX/adspr.jsn.zst"
+    ];
     availableKernelModules = modules;
     kernelModules = modules;
     verbose = true;
