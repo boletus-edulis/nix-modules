@@ -34,6 +34,30 @@
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
 
+  boot.initrd.extraFirmwarePaths = [
+    "qcom/sc8280xp/SC8280XP-LENOVO-X13S-tplg.bin.zst"
+    "qcom/sc8280xp/LENOVO/21BX/qcvss8280.mbn.zst"
+    "qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn.zst"
+    "qcom/sc8280xp/LENOVO/21BX/qcdxkmsuc8280.mbn.zst"
+    "qcom/sc8280xp/LENOVO/21BX/qccdsp8280.mbn.zst"
+    "qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn.zst"
+
+    "qcom/sc8280xp/LENOVO/21BX/cdspr.jsn.zst"
+    "qcom/qcm6490/cdspr.jsn.zst"
+
+    "qcom/sc8280xp/LENOVO/21BX/battmgr.jsn.zst"
+    "qcom/qcm6490/battmgr.jsn.zst"
+
+    "qcom/sc8280xp/LENOVO/21BX/audioreach-tplg.bin.zst"
+
+    "qcom/sc8280xp/LENOVO/21BX/adspua.jsn.zst"
+    "qcom/qcm6490/adspua.jsn.zst"
+
+    "qcom/sc8280xp/LENOVO/21BX/adspr.jsn.zst"
+  ];
+
+  boot.supportedFilesystems = [ "iso9660" "udf" ];
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
@@ -76,6 +100,12 @@
   };
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
+  virtualisation.libvirtd.qemu.swtpm.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  # to run microvms and libvirt together, or in general to be able to use any bridge
+  virtualisation.libvirtd.allowedBridges = [ "all" ];
+
   #virtualisation.waydroid.enable = true;
 
   #virtualisation.podman.enable = true;
