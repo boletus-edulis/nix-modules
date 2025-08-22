@@ -12,20 +12,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  specialisation.notel2.inheritParentConfig = true;
-  specialisation.notel2.configuration = {
-    hardware.deviceTree.name = lib.mkForce "sc8280xp-lenovo-thinkpad-x13s.dtb";
-  };
+  #specialisation.notel2.inheritParentConfig = true;
+  #specialisation.notel2.configuration = {
+  #  hardware.deviceTree.name = lib.mkForce "sc8280xp-lenovo-thinkpad-x13s.dtb";
+  #};
 
-  hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s-el2.dtb";
-  boot.loader.systemd-boot.extraFiles = {
-    "EFI/systemd/drivers/slbounceaa64.efi" = "${cpkgs.slbounce}/slbounce.efi";
-    "EFI/systemd/drivers/${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
-
-    "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
-    "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
-    "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
-  };
+  hardware.deviceTree.name = lib.mkForce "sc8280xp-lenovo-thinkpad-x13s.dtb";
+  #hardware.deviceTree.name = "sc8280xp-lenovo-thinkpad-x13s-el2.dtb";
+  #boot.loader.systemd-boot.extraFiles = {
+  #  "EFI/systemd/drivers/slbounceaa64.efi" = "${cpkgs.slbounce}/slbounce.efi";
+  #  "EFI/systemd/drivers/${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
+  #
+  #  "slbounce.efi" = "${cpkgs.slbounce}/slbounce.efi";
+  #  "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
+  #  "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
+  #};
   hardware.deviceTree.package = lib.mkForce "${builtins.toString pkgs.linuxPackages_latest.kernel}/dtbs/qcom";
   hardware.deviceTree.enable = true;
 
@@ -98,12 +99,13 @@
     wantedBy = [ "multi-user.target" ];
   };
 
-  virtualisation.libvirtd.enable = true;
-  virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
-  virtualisation.libvirtd.qemu.swtpm.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
-  # to run microvms and libvirt together, or in general to be able to use any bridge
-  virtualisation.libvirtd.allowedBridges = [ "all" ];
+
+  #virtualisation.libvirtd.enable = true;
+  #virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
+  #virtualisation.libvirtd.qemu.swtpm.enable = true;
+  ## to run microvms and libvirt together, or in general to be able to use any bridge
+  #virtualisation.libvirtd.allowedBridges = [ "all" ];
 
   #virtualisation.waydroid.enable = true;
 
