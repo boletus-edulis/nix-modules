@@ -8,11 +8,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1757753440,
-        "narHash": "sha256-a8JhkE9EV4amNrANx4yFLfJmAE2+pksZcQKdl3LdZMs=",
+        "lastModified": 1757754437,
+        "narHash": "sha256-jUtkQXyESLdjesnry3gom8nW8McGPsoJN/E2IKx4oWM=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "bb3f1414f01bcfb816457ff3dce9c21056c73576",
+        "rev": "5ddab1acd2df3dde0906bbc25d77e667fea46ef3",
         "type": "github"
       },
       "original": {
@@ -30,11 +30,11 @@
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
-        "lastModified": 1757728856,
-        "narHash": "sha256-GBEKLGhEE0iitGMNwpkqzxrWWWYLZ0HPUOuVZQ/sctM=",
+        "lastModified": 1757753440,
+        "narHash": "sha256-a8JhkE9EV4amNrANx4yFLfJmAE2+pksZcQKdl3LdZMs=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "04c2ead2d49e1a4bd1f4e53528f05a4f51c5eae0",
+        "rev": "bb3f1414f01bcfb816457ff3dce9c21056c73576",
         "type": "github"
       },
       "original": {
@@ -97,11 +97,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1757730609,
-        "narHash": "sha256-1KfaAD+gISikM0GvVDzlzsRSxsZiLO4TOHWHkoYcflY=",
+        "lastModified": 1757754005,
+        "narHash": "sha256-dUX25o13hyjK8120i7aiC6l1/vsDdsozq808UCE8eag=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "25fd1ec77d3fe3b09f3cfd66730095050d1700ed",
+        "rev": "d9c511ff7482ca66fbc055a95d4d7ec97f79bc90",
         "type": "github"
       },
       "original": {
