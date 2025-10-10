@@ -33,7 +33,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.installDeviceTree = true;
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.systemd-boot.configurationLimit = 1;
 
   boot.supportedFilesystems = [ "iso9660" "udf" ];
 
