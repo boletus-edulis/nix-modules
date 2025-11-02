@@ -163,7 +163,7 @@
   networking.useNetworkd = true;
 
   networking.hostName = "ribes-uva-crispa";
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
   networking.nftables.enable = true;
   networking.firewall.allowedTCPPorts = [ 22000 ];
 
