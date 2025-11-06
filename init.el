@@ -93,6 +93,11 @@
     :global-minor-mode global-whitespace-mode)
 
   (leaf python :custom ((python-shell-interpreter . "python3")))
+  (leaf python-black
+    :after python
+    :hook ((python-mode-hook . python-black-on-save-mode-enable-dwim)
+           (python-ts-mode-hook . python-black-on-save-mode-enable-dwim))
+    :require t)
 
   ;;(leaf elpy
   ;;  :ensure t
