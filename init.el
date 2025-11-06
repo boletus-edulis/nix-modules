@@ -94,7 +94,7 @@
 
   (leaf python
     :custom ((python-shell-interpreter . "python3")
-             ('eglot-server-programs .
+             (eglot-server-programs .
                           '((python-mode python-ts-mode) .
                             ("basedpyright-langserver" "--stdio"
 
@@ -109,9 +109,9 @@
                              ;;   :inlayHints
                              ;;   (:callArgumentNames :json-false)))
                             ))
-             ('eglot-workspace-configuration .
-                                             (:basedpyright
-                                              (:reportUnknownVariableType "false")))
+             (eglot-workspace-configuration .
+                                            (:basedpyright
+                                             (:reportUnknownVariableType "false")))
              ))
 
 
