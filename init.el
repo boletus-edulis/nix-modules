@@ -94,7 +94,7 @@
 
   (leaf python :custom ((python-shell-interpreter . "python3")))
   (leaf blacken
-    :after python
+    :ensure t
     :hook ((python-mode-hook . python-black-on-save-mode-enable-dwim)
            (python-ts-mode-hook . python-black-on-save-mode-enable-dwim))
     :require t)
