@@ -97,15 +97,23 @@
              ('eglot-server-programs .
                           '((python-mode python-ts-mode) .
                             ("basedpyright-langserver" "--stdio"
-                            :initializationOptions
-                            ((:basedpyright
-                              (:reportUnknownVariableType "false"))))
-                             ;;(:basedpyright.analysis
-                             ;; (:diagnosticSeverityOverrides
-                             ;;  (:reportUnusedCallResult "none")
-                             ;;  :inlayHints
-                             ;;  (:callArgumentNames :json-false)))
-                             ))))
+
+                             ;; :initializationOptions
+                             ;; ((:basedpyright
+                             ;;   (:reportUnknownVariableType "false")))
+
+                            )
+                             ;; (:basedpyright.analysis
+                             ;;  (:diagnosticSeverityOverrides
+                             ;;   (:reportUnusedCallResult "none")
+                             ;;   :inlayHints
+                             ;;   (:callArgumentNames :json-false)))
+                            ))
+             ('eglot-workspace-configuration .
+                                             (:basedpyright
+                                              (:reportUnknownVariableType "false")))
+             ))
+
 
   (leaf blacken
     :ensure t
