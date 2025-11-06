@@ -95,9 +95,9 @@
   (leaf python :custom ((python-shell-interpreter . "python3")))
   (leaf blacken
     :ensure t
-    :hook ((python-mode-hook . python-black-on-save-mode-enable-dwim)
-           (python-ts-mode-hook . python-black-on-save-mode-enable-dwim))
-    :require t)
+    :require t
+    :hook ((python-mode-hook . (lambda () (blacken-mode 1)))
+           (python-ts-mode-hook . (lambda () (blacken-mode 1)))))
 
   ;;(leaf elpy
   ;;  :ensure t
