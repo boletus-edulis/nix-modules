@@ -92,7 +92,13 @@
 	     (whitespace-line-column . 80))
     :global-minor-mode global-whitespace-mode)
 
-  (leaf python :custom ((python-shell-interpreter . "python3")))
+  (leaf python
+    :custom ((python-shell-interpreter . "python3"))
+    :config
+    (add-to-list
+     'eglot-server-programs '((python-mode python-ts-mode) .
+                              ("basedpyright-langserver" "--stdio" "--skipunannotated"))))
+
   (leaf blacken
     :ensure t
     :require t
