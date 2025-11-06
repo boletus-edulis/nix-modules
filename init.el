@@ -96,7 +96,16 @@
     :custom ((python-shell-interpreter . "python3")
              ('eglot-server-programs .
                           '((python-mode python-ts-mode) .
-                            ("basedpyright-langserver" "--stdio" "--skipunannotated")))))
+                            ("basedpyright-langserver" "--stdio")
+                            :initializationOptions
+                            ((:basedpyright
+                              (:reportUnknownVariableType "false"))
+                             ;;(:basedpyright.analysis
+                             ;; (:diagnosticSeverityOverrides
+                             ;;  (:reportUnusedCallResult "none")
+                             ;;  :inlayHints
+                             ;;  (:callArgumentNames :json-false)))
+                             )))))
 
   (leaf blacken
     :ensure t
