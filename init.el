@@ -110,8 +110,8 @@
                              ;;   (:callArgumentNames :json-false)))
                             ))
              (eglot-workspace-configuration .
-                                            (:basedpyright
-                                             (:reportUnknownVariableType "false")))
+                                            '((:basedpyright .
+                                                             (:reportUnknownVariableType "false"))))
              ))
 
 
