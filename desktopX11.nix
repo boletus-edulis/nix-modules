@@ -17,10 +17,11 @@
       })
     ];
 
+    services.cinnamon.apps.enable = true;
     services.xserver = {
       enable = true;
       desktopManager = {
-        #cinnamon.enable = true;
+        cinnamon.enable = true;
 
         xterm.enable = false;
         xfce = {
@@ -32,13 +33,13 @@
       };
 
       windowManager.stumpwm.enable = true;
-      displayManager.lightdm = {
-        enable = true;
-        #greeters = {
-        #  gtk.enable = true;
-        #  gtk.theme.name = "Adwaita-dark";
-        #};
-      };
+      #displayManager.lightdm = {
+      #  enable = true;
+      #  #greeters = {
+      #  #  gtk.enable = true;
+      #  #  gtk.theme.name = "Adwaita-dark";
+      #  #};
+      #};
 
     };
     #services.displayManager.defaultSession = "none+stumpwm";
