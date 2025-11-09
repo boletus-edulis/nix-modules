@@ -6,8 +6,12 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" "armv7l-linux" ];
-  #boot.binfmt.preferStaticEmulators = true;
+  boot.binfmt.emulatedSystems = [
+    "x86_64-linux"
+    #"i686-linux"
+    #"armv7l-linux"
+  ];
+  boot.binfmt.preferStaticEmulators = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -98,8 +102,11 @@
     };
     wantedBy = [ "multi-user.target" ];
   };
+  systemd.tpm2.enable = false;
 
   virtualisation.spiceUSBRedirection.enable = true;
+
+  programs.nix-ld.enable = true;
 
   #virtualisation.libvirtd.enable = true;
   #virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
@@ -163,9 +170,26 @@
   networking.useNetworkd = true;
 
   networking.hostName = "ribes-uva-crispa";
-  networking.networkmanager.enable = false;
   networking.nftables.enable = true;
   networking.firewall.allowedTCPPorts = [ 22000 ];
+
+  networking.networkmanager.enable = false;
+  networking.networkmanager.settings = {
+    connectivity = {
+      enabled = false;
+    };
+  };
+
+  networking.wireless.iwd.enable = true;
+  networking.wireless.iwd.settings = {
+    Network = {
+      EnableIPv6 = true;
+      RoutePriorityOffset = 300;
+    };
+    Settings = {
+      AutoConnect = true;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
