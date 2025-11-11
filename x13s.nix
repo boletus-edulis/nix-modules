@@ -52,12 +52,32 @@
   ];
 
   boot.initrd = let
-    modules = [ "nvme" "phy_qcom_qmp_pcie"
-      #"pcie_qcom"
-      "phy_qcom_qmp_ufs" "ufs_qcom" "i2c_hid_of"
-      "i2c_qcom_geni" "leds_qcom_lpg" "pwm_bl" "qrtr" "pmic_glink_altmode" "gpio_sbu_mux"
-      "phy_qcom_qmp_combo" "gpucc_sc8280xp" "dispcc_sc8280xp" "phy_qcom_edp" "panel_edp"
-      "msm" ];
+    modules = [
+      "nvme"
+      "phy_qcom_qmp_pcie"
+      "phy_qcom_qmp_ufs"
+      "pcie-qcom" # new
+
+      "i2c-core" # new
+      "i2c-hid" # new
+
+      "ufs_qcom"
+      "i2c_hid_of"
+
+      "i2c_qcom_geni"
+      "leds_qcom_lpg"
+      "pwm_bl"
+      "qrtr"
+
+      "pmic_glink_altmode"
+      "gpio_sbu_mux"
+      "phy_qcom_qmp_combo"
+      "gpucc_sc8280xp"
+      "dispcc_sc8280xp"
+      "phy_qcom_edp"
+      "panel_edp"
+      "msm"
+    ];
   in {
     extraFirmwarePaths = [
       "qcom/sc8280xp/SC8280XP-LENOVO-X13S-tplg.bin.zst"
@@ -226,6 +246,7 @@
   hardware.graphics.extraPackages = with pkgs; [
     libva-vdpau-driver
     libvdpau-va-gl
+    vpl-gpu-rt
   ];
 
   home-manager.users."${username}" = { pkgs, config, ... }: {
