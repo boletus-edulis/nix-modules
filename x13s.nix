@@ -56,7 +56,6 @@
       "nvme"
       "phy_qcom_qmp_pcie"
       "phy_qcom_qmp_ufs"
-      "pcie-qcom" # new
 
       "i2c-core" # new
       "i2c-hid" # new
