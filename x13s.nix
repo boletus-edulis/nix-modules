@@ -246,7 +246,6 @@
   hardware.graphics.extraPackages = with pkgs; [
     libva-vdpau-driver
     libvdpau-va-gl
-    vpl-gpu-rt
   ];
 
   home-manager.users."${username}" = { pkgs, config, ... }: {
