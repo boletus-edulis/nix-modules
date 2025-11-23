@@ -97,11 +97,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1763940393,
+        "lastModified": 1763940982,
         "narHash": "sha256-MvqRlDKh86H2EuwMzYVZvMvKpiW4qysMhf0xBCd9yZU=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "5d5e42e50c9fa6a18bd5c7608a11f4796dfce8ea",
+        "rev": "4cd29fac47ca7ed9fd7f4f87d05295f771093c98",
         "type": "github"
       },
       "original": {
