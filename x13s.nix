@@ -237,6 +237,13 @@
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
+  nixpkgs.overlays = [
+    (final: prev: {
+      qemu-user = prev.qemu-user.overrideAttrs (old: {
+        configureFlags = old.configureFlags ++ [ "--disable-pie" ];
+      });
+    })
+  ];
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 
   hardware.enableAllFirmware = lib.mkForce true;
