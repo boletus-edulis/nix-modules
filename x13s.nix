@@ -31,7 +31,9 @@
   #  "sltest.efi" = "${cpkgs.slbounce}/sltest.efi";
   #  "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
   #};
-  hardware.deviceTree.package = lib.mkForce "${builtins.toString pkgs.linuxPackages_latest.kernel}/dtbs/qcom";
+
+  #hardware.deviceTree.package = lib.mkForce "${builtins.toString pkgs.linuxPackages_latest.kernel}/dtbs/qcom";
+  hardware.deviceTree.package = lib.mkForce "${builtins.toString cpkgs.linux_x13s}/dtbs/qcom";
   hardware.deviceTree.enable = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -41,7 +43,8 @@
 
   boot.supportedFilesystems = [ "iso9660" "udf" ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackagesFor cpkgs.linux_x13s;
   boot.kernelParams = [
     "earlyprintk=efi" "loglevel=7" "console=tty0"
     "clk_ignore_unused" "pd_ignore_unused" "arm64.nopauth"
