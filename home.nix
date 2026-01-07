@@ -17,7 +17,7 @@ in
     #nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
     users.users."${username}" = {
       isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "podman" "video" "rtkit" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "podman" "video" "rtkit" "cdrom" ];
     };
 
     home-manager.backupFileExtension = "backup";
