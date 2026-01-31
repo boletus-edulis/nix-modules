@@ -97,11 +97,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1769824808,
-        "narHash": "sha256-5ak/Fc/U430DMndKj0HSqF7H/+VwH8920j9gJvT0OT0=",
+        "lastModified": 1769829013,
+        "narHash": "sha256-AYMmXPN48bQt0qyk/zLi8AagIBQi+BbRD1q21P5pk0M=",
         "owner": "boletus-edulis",
         "repo": "hydra-test",
-        "rev": "f300080b907e28d52ac8e2d6e378b26b809be975",
+        "rev": "d5cee8cdb1da1e477308540de6ac138b7f79b1d1",
         "type": "github"
       },
       "original": {
@@ -226,11 +226,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769742225,
-        "narHash": "sha256-roSD/OJ3x9nF+Dxr+/bLClX3U8FP9EkCQIFpzxKjSUM=",
+        "lastModified": 1769828398,
+        "narHash": "sha256-zmnvRUm15QrlKH0V1BZoiT3U+Q+tr+P5Osi8qgtL9fY=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "bcdd8d37594f0e201639f55889c01c827baf5c75",
+        "rev": "a1d32c90c8a4ea43e9586b7e5894c179d5747425",
         "type": "github"
       },
       "original": {
