@@ -26,7 +26,7 @@
     enable = true;
     #package = pkgs.emacs-git-nox;
     #package = pkgs.emacs-nox;
-    package = pkgs.emacs;
+    package = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
       epkgs.vterm epkgs.treesit-grammars.with-all-grammars
       epkgs.treemacs epkgs.treemacs-all-the-icons
