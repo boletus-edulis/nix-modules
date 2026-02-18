@@ -1,7 +1,4 @@
 (eval-and-compile
-  (setenv "LSP_USE_PLISTS" "true")
-  (setq lsp-use-plists t)
-
   (customize-set-variable
    'package-archives '(("org" . "https://orgmode.org/elpa/")
                        ("melpa" . "https://melpa.org/packages/")
@@ -9,115 +6,77 @@
 
   (package-initialize)
 
-  (unless (package-installed-p 'leaf)
+  (unless (package-installed-p 'use-package)
     (package-refresh-contents)
-    (package-install 'leaf))
+    (package-install 'use-package))
 
-  (leaf leaf-keywords
-    :ensure t
-    :config
-    (leaf-keywords-init))
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (load custom-file 'noerror)
 
-  (leaf leaf-convert :ensure t)
-  (leaf leaf-tree :ensure t)
+  (custom-set-faces
+   '(default ((t (:family "Iosevka Term Slab" :foundry "BE5N" :slant normal :weight normal :height 192 :width normal))))
+   '(Info-quoted ((t (:family "Iosevka"))))
+   '(fixed-pitch ((t (:family "Iosevka"))))
+   '(fixed-pitch-serif ((t (:family "Iosevka"))))
+   '(mode-line ((t (:background "gray30" :box (:line-width 1 :color "red") :family "Iosevka"))))
+   '(variable-pitch ((t (:family "Iosevka")))))
 
-  (leaf custom-file
-    :config
-    (setq custom-file "~/.emacs.d/custom.el")
-    (condition-case nil
-        (load custom-file)
-      (error nil)))
+  (setq transient-mark-mode  t)
+  (setq show-paren-mode t)
+  (setq menu-bar-mode nil)
+  (setq indent-tabs-mode t)
+  (setq which-function-mode t)
+  (setq show-paren-delay 0)
+  (setq display-time-24hr-format t)
+  (setq show-trailing-whitespace t)
+  (setq make-backup-files nil)
+  (setq auto-save-default nil)
+  (setq global-auto-revert-mode t)
+  (setq column-number-mode t)
+  (setq xterm-mouse-mode nil)
 
-  (leaf custom-set-faces
-    :config
-    (custom-set-faces
-     '(default ((t (:family "Iosevka Term Slab" :foundry "BE5N" :slant normal
-			    :weight normal :height 192 :width normal))))
-     '(Info-quoted ((t (:family "Iosevka"))))
-     '(fixed-pitch ((t (:family "Iosevka"))))
-     '(fixed-pitch-serif ((t (:family "Iosevka"))))
-     '(mode-line ((t (:background "gray30" :box (:line-width 1 :color "red")
-				  :family "Iosevka"))))
-     '(variable-pitch ((t (:family "Iosevka"))))))
-
-  (leaf custom-startup
-    :custom ((transient-mark-mode . t)
-	     (show-paren-mode . t)
-             (menu-bar-mode . nil)
-             (indent-tabs-mode . t)
-	     (which-function-mode . t)
-	     (show-paren-delay . 0)
-	     (display-time-24hr-format . t)
-	     (show-trailing-whitespace . t)
-	     (make-backup-files . nil)
-	     (auto-save-default . nil)
-	     (global-auto-revert-mode . t)
-	     (column-number-mode . t)
-             (xterm-mouse-mode . nil))
-    :config (when (display-graphic-p)
-              (tool-bar-mode -1)
-              (scroll-bar-mode -1)))
-
-  (leaf whitespace
-    :custom ((whitespace-style . '(face trailing lines-tail space-before-tab))
-	     (whitespace-line-column . 80))
-    :global-minor-mode global-whitespace-mode)
-
-  (leaf vterm :ensure t)
-
-  (leaf treesit-auto
-    :ensure t
-    :custom ((treesit-auto-install . 'prompt))
-    :config
-    (require 'treesit-auto)
-    (treesit-auto-add-to-auto-mode-alist 'all)
-    (global-treesit-auto-mode))
+  (when (display-graphic-p)
+    (setq tool-bar-mode -1)
+    (setq scroll-bar-mode -1))
 
   (load-theme 'modus-vivendi-tritanopia)
 
-  (leaf doom-modeline
+  (use-package whitespace
+    :ensure t  ;; I also tried without this line
+    :config
+    (setq whitespace-style '(face trailing lines-tail space-before-tab))
+    (setq whitespace-line-column 80)
+    (global-whitespace-mode))
+
+  (use-package vterm :ensure t)
+
+  (use-package treesit-auto
     :ensure t
-    :hook emacs-startup-hook)
+    :custom
+    (treesit-auto-install 'prompt)
+    :config
+    (treesit-auto-add-to-auto-mode-alist 'all)
+    (global-treesit-auto-mode))
 
-  (leaf magit
+  (use-package doom-modeline
     :ensure t
-    :custom ((magit-log-section-commit-count . 500)))
+    :init (doom-modeline-mode 1))
 
-  (leaf transient-dwim
+  (use-package magit
     :ensure t
-    :bind (("M-=" . transient-dwim-dispatch)))
+    :config
+    (setq magit-log-section-commit-count 500))
 
-  (leaf whitespace
-    :custom ((whitespace-style . '(face trailing lines-tail space-before-tab))
-	     (whitespace-line-column . 80))
-    :global-minor-mode global-whitespace-mode)
-
-  (leaf python
-    :custom ((python-shell-interpreter . "python3")
-             (eglot-server-programs .
-                          '((python-mode python-ts-mode) .
-                            ("basedpyright-langserver" "--stdio"
-
-                             ;; :initializationOptions
-                             ;; ((:basedpyright
-                             ;;   (:reportUnknownVariableType "false")))
-
-                            )
-                             ;; (:basedpyright.analysis
-                             ;;  (:diagnosticSeverityOverrides
-                             ;;   (:reportUnusedCallResult "none")
-                             ;;   :inlayHints
-                             ;;   (:callArgumentNames :json-false)))
-                            ))
-             (eglot-workspace-configuration .
-                                            '((:basedpyright .
-                                                             (:reportUnknownVariableType "false"))))
-             ))
-
-
-  (leaf blacken
+  (use-package transient-dwim
     :ensure t
-    :require t
+    :bind ("M-=" . transient-dwim-dispatch))
+
+;;  (use-package python
+;;    :config
+;;    (setq python-shell-interpreter "python3"))
+
+  (use-package blacken
+    :ensure t
     :hook ((python-mode-hook . (lambda () (blacken-mode 1)))
            (python-ts-mode-hook . (lambda () (blacken-mode 1)))))
 
@@ -143,64 +102,67 @@
   ;;  (elpy-enable)
   ;;  )
 
-  (leaf flycheck
+  (use-package flycheck
     :ensure t
-    :bind (("M-n" . flycheck-next-error)
-           ("M-p" . flycheck-previous-error))
-    :custom ((flycheck-clang-pedantic . t)
-    	     (flycheck-clang-warnings . '("all" "extra"))
-    	     (flycheck-gcc-pedantic . t)
-    	     (flycheck-gcc-warnings . '("all" "extra")))
-    :hook prog-mode-hook
+    :bind
+    (("M-n" . flycheck-next-error)
+     ("M-p" . flycheck-previous-error))
     :config
-    (leaf flycheck-elsa
-      :ensure t
-      :config (flycheck-elsa-setup))
-    (leaf flycheck-rust
-      :ensure t))
+    (setq flycheck-clang-pedantic t)
+    (setq flycheck-clang-warnings '("all" "extra"))
+    (setq flycheck-gcc-pedantic t)
+    (setq flycheck-gcc-warnings '("all" "extra"))
+    :init (global-flycheck-mode))
 
-  (leaf yasnippet
+  (use-package eglot
     :ensure t
-    :global-minor-mode yas-global-mode)
-
-  (leaf company-prescient
-    :ensure t
-    :hook company-mode-hook)
-
-  (leaf company
-    :ensure t
-    :after yasnippet
-    :bind (:company-active-map
-           ("M-<tab>" . company-complete-common))
-    :hook (emacs-startup-hook . global-company-mode)
-    :custom ((company-idle-delay . 0)))
-
-  ;;(leaf cargo-mode
-  ;;  :ensure t
-  ;;  :hook ((rust-mode-hook rustic-mode-hook) . cargo-minor-mode)
-
-  (leaf rustic
-    :ensure t
+    :hook (( python-ts-mode ) . eglot-ensure)
     :custom
-    `((lsp-rust-analyzer-lens-references-adt-enable . t)
-      (lsp-rust-analyzer-lens-references-enumVariant-enable . t)
-      (lsp-rust-analyzer-lens-references-method-enable . t)
-      (lsp-rust-analyzer-lens-references-trait-enable . t)
-      (lsp-rust-analyzer-hover-actions-references-enable . t)
-      (lsp-rust-analyzer-inlayHints-bindingModeHints-enable . t)
-      ;;(lsp-rust-analyzer-rustc-source . "discover") ;; find rustc-dev in rust-src
-      (rustic-format-trigger . 'on-save)
-      (rustic-rustfmt-args . "--edition 2021")
-      (rustic-rustfmt-config-alist . ((max_width . 120)))
-      (indent-tabs-mode . nil)
-      (whitespace-line-column . 120)
-      (lsp-inlay-hint-enable . t)
-      )
-    :mode "\\.rs\\'"
-    ;;(setq mode-line-compact t)
-    )
+    (eglot-stay-out-of '(yasnippet)))
 
-  (leaf rust-auto-use :ensure t)
+  (use-package helm
+    :ensure t
+    :bind (("M-x" . helm-M-x)
+           ("C-x C-f" . helm-find-files))
+    :config (helm-mode 1))
+
+  (use-package yasnippet
+    :ensure t
+    :init (yas-global-mode))
+
+;;  (use-package company-prescient
+;;    :ensure t
+;;    :hook company-mode)
+;;
+;;  (use-package company
+;;    :ensure t
+;;    :after yasnippet
+;;    :bind (:map company-mode-map
+;;           ("M-<tab>" . company-complete-common))
+;;    :hook prog-mode)
+
+;;  (leaf rustic
+;;    :ensure t
+;;    :custom
+;;    `((lsp-rust-analyzer-lens-references-adt-enable . t)
+;;      (lsp-rust-analyzer-lens-references-enumVariant-enable . t)
+;;      (lsp-rust-analyzer-lens-references-method-enable . t)
+;;      (lsp-rust-analyzer-lens-references-trait-enable . t)
+;;      (lsp-rust-analyzer-hover-actions-references-enable . t)
+;;      (lsp-rust-analyzer-inlayHints-bindingModeHints-enable . t)
+;;      ;;(lsp-rust-analyzer-rustc-source . "discover") ;; find rustc-dev in rust-src
+;;      (rustic-format-trigger . 'on-save)
+;;      (rustic-rustfmt-args . "--edition 2021")
+;;      (rustic-rustfmt-config-alist . ((max_width . 120)))
+;;      (indent-tabs-mode . nil)
+;;      (whitespace-line-column . 120)
+;;      (lsp-inlay-hint-enable . t)
+;;      )
+;;    :mode "\\.rs\\'"
+;;    ;;(setq mode-line-compact t)
+;;    )
+
+;;  (leaf rust-auto-use :ensure t)
 
 ;;  (leaf lsp-mode
 ;;    :ensure t
@@ -239,31 +201,10 @@
 ;;
 ;;    (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
 
-  (leaf lsp-nix
-    :config
-    ;;(use-package-ensure-elpa 'lsp-nix '(lsp-mode) '(:demand t))
-    (with-eval-after-load 'lsp-mode
-      (let ((custom--inhibit-theme-enable nil))
-    	(unless (memq 'use-package custom-known-themes)
-          (deftheme use-package)
-          (enable-theme 'use-package)
-          (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
-    	(custom-theme-set-variables
-    	 'use-package '(lsp-nix-nil-formatter
-    			["nixfmt-rfc-style"] nil nil "Customized with use-package lsp-nix")))
-      (require 'lsp-nix nil nil)))
+  (use-package nix-ts-mode :ensure t)
 
-  (leaf nix-ts-mode
-    :ensure t)
-  ;;  :commands lsp-deferred
-  ;;  :hook ((nix-mode-hook . lsp-deferred)))
+  (use-package yaml-mode :ensure t)
 
-  (leaf yaml-mode
-    :ensure t)
+  (use-package yasnippet-capf :ensure t)
 
-  (leaf yasnippet-capf
-    :ensure t)
-
-  (leaf ispell
-    :custom ((ispell-program-name . "hunspell")))
-  )
+  (use-package ispell :config (setq ispell-program-name "hunspell")))
