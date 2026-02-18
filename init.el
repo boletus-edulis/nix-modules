@@ -73,6 +73,12 @@
     :config
     (setq magit-log-section-commit-count 500))
 
+  (use-package smartparens
+    :ensure t
+    :hook (prog-mode text-mode org-mode)
+    :config
+    (require 'smartparens-config))
+
   (use-package transient-dwim
     :ensure t
     :bind ("M-=" . transient-dwim-dispatch))
