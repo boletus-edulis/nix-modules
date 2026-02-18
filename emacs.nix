@@ -63,5 +63,5 @@
   #  source = ./init.el;
   #};
 
-  home.packages = with pkgs; [ ispell hunspell iosevka-bin ];
+  home.packages = with pkgs; [ ispell hunspell iosevka-bin grc ];
 }
