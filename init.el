@@ -68,10 +68,6 @@
     :custom
     (grep-use-headings t))
 
-  (use-package nerd-icons-completion
-    :config
-    (nerd-icons-completion-mode))
-
   (use-package magit
     :ensure t
     :config
@@ -134,8 +130,7 @@
     :ensure t
     :bind (("M-x" . helm-M-x)
            ("C-x C-f" . helm-find-files)
-	   ("C-x b" . helm-buffers-list)
-	   ("C-x k" . kill-buffer))
+	   ("C-x b" . helm-buffers-list))
     :config (helm-mode 1))
 
   (use-package vterm
