@@ -1,7 +1,18 @@
 { config, pkgs, ... }:
 
 {
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+    plugins = [
+      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      { name = "done"; src = pkgs.fishPlugins.done.src; }
+      { name = "spark"; src = pkgs.fishPlugins.spark.src; }
+      { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
+    ];
+  };
 
   programs.bash = {
     enable = true;
@@ -21,6 +32,13 @@
       buildPath = dict: "${dict}/share/hunspell";
     in ''
       export DICPATH=${builtins.concatStringsSep ":" (builtins.map buildPath dicts)}
+    '';
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
     '';
   };
 
