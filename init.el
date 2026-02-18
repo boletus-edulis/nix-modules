@@ -137,6 +137,18 @@
 	   ("C-x b" . helm-buffers-list))
     :config (helm-mode 1))
 
+  (use-package vterm
+    :ensure t
+    :config
+    (defun new-vterm-with-name (name)
+      "Open a new vterm buffer with a specified NAME."
+      (interactive "sEnter buffer name: ")
+      (let ((buffer (get-buffer-create (concat "*vterm-" name "*"))))
+	(with-current-buffer buffer
+	  (unless (derived-mode-p 'vterm-mode)
+            (vterm-mode)))
+	(switch-to-buffer buffer))))
+
   (use-package yasnippet
     :ensure t
     :init (yas-global-mode))
