@@ -36,7 +36,7 @@
   (setq xterm-mouse-mode nil)
 
   (when (display-graphic-p)
-    (setq tool-bar-mode -1)
+    (setq tool-bar-mode nil)
     (setq scroll-bar-mode -1))
 
   (load-theme 'modus-vivendi-tritanopia)
