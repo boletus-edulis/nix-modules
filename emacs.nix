@@ -31,7 +31,7 @@
       epkgs.vterm epkgs.treesit-grammars.with-all-grammars epkgs.use-package
       epkgs.treemacs epkgs.treemacs-all-the-icons epkgs.helm epkgs.treesit-auto
       epkgs.doom-modeline epkgs.magit epkgs.blacken epkgs.flycheck
-      epkgs.yasnippet epkgs.nix-ts-mode
+      epkgs.yasnippet epkgs.nix-ts-mode epkgs.yaml-mode epkgs.yasnippet-capf
     ];
     extraConfig = (builtins.readFile ./init.el);
   };
