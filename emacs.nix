@@ -29,7 +29,7 @@
     package = pkgs.emacs-pgtk;
     extraPackages = epkgs: [
       epkgs.vterm epkgs.treesit-grammars.with-all-grammars epkgs.use-package
-      epkgs.treemacs epkgs.treemacs-all-the-icons
+      epkgs.treemacs epkgs.treemacs-all-the-icons epkgs.helm
     ];
     extraConfig = (builtins.readFile ./init.el);
   };
