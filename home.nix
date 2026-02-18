@@ -5,9 +5,9 @@ let
   home = {
     packages = with pkgs; [
       atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
-      nftables tcpdump gdb emacs-lsp-booster
+      nftables tcpdump gdb strace
     ] ++ emacs.home.packages;
-    inherit (emacs.home) file;
+    #inherit (emacs.home) file;
     stateVersion = "23.11";
   };
 in
