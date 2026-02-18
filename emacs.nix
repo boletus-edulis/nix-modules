@@ -31,7 +31,7 @@
       epkgs.vterm epkgs.treesit-grammars.with-all-grammars
       epkgs.treemacs epkgs.treemacs-all-the-icons
     ];
-    extraConfig = builtins.readFile ./init.el;
+    extraConfig = (builtins.readFile ./init.el);
   };
 
   #home.file.emacs-init-el = {
