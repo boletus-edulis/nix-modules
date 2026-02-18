@@ -29,6 +29,7 @@
     package = pkgs.emacs;
     extraPackages = epkgs: [
       epkgs.vterm epkgs.treesit-grammars.with-all-grammars
+      epkgs.treemacs epkgs.treemacs-all-the-icons
     ];
   };
 

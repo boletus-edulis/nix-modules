@@ -21,22 +21,22 @@
    '(mode-line ((t (:background "gray30" :box (:line-width 1 :color "red") :family "Iosevka"))))
    '(variable-pitch ((t (:family "Iosevka")))))
 
-  (setq transient-mark-mode  t)
+  (setq transient-mark-mode t)
   (setq show-paren-mode t)
-  (setq menu-bar-mode nil)
+  (setq menu-bar-mode -1)
   (setq indent-tabs-mode t)
   (setq which-function-mode t)
   (setq show-paren-delay 0)
   (setq display-time-24hr-format t)
   (setq show-trailing-whitespace t)
-  (setq make-backup-files nil)
-  (setq auto-save-default nil)
+  (setq make-backup-files -1)
+  (setq auto-save-default -1)
   (setq global-auto-revert-mode t)
   (setq column-number-mode t)
-  (setq xterm-mouse-mode nil)
+  (setq xterm-mouse-mode -1)
 
   (when (display-graphic-p)
-    (setq tool-bar-mode nil)
+    (setq tool-bar-mode -1)
     (setq scroll-bar-mode -1))
 
   (load-theme 'modus-vivendi-tritanopia)
@@ -47,8 +47,6 @@
     (setq whitespace-style '(face trailing lines-tail space-before-tab))
     (setq whitespace-line-column 80)
     (global-whitespace-mode))
-
-  (use-package vterm :ensure t)
 
   (use-package treesit-auto
     :ensure t
