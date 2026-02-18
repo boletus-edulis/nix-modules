@@ -33,7 +33,7 @@
     in ''
       export DICPATH=${builtins.concatStringsSep ":" (builtins.map buildPath dicts)}
     '';
-    interactiveShellInit = ''
+    initExtra = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
       then
         shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
