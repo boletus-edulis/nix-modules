@@ -58,6 +58,10 @@
     :ensure t
     :init (doom-modeline-mode 1))
 
+  (use-package nerd-icons
+    :custom
+    (nerd-icons-font-family "Symbols Nerd Font Mono"))
+
   (use-package nerd-icons-grep
     :init
     (nerd-icons-grep-mode)

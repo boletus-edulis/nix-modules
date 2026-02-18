@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  programs.fish.enable = true;
+
   programs.bash = {
     enable = true;
     historySize = -1;
