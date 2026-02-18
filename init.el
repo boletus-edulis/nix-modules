@@ -14,11 +14,12 @@
   (load custom-file 'noerror)
 
   (custom-set-faces
-   '(default ((t (:family "Iosevka Term Slab" :foundry "BE5N" :slant normal :weight normal :height 192 :width normal))))
+   '(default ((t (:family "Iosevka Term Slab" :foundry "BE5N" :slant normal :weight normal :height 128 :width normal))))
    '(Info-quoted ((t (:family "Iosevka"))))
    '(fixed-pitch ((t (:family "Iosevka"))))
    '(fixed-pitch-serif ((t (:family "Iosevka"))))
-   '(mode-line ((t (:background "gray30" :box (:line-width 1 :color "red") :family "Iosevka"))))
+   '(mode-line ((t (:background "gray30" :box (:line-width 1 :color "red") :height 128 :family "Iosevka"))))
+   '(mode-line-inactive ((t (:background "gray30" :box (:line-width 1 :color "red") :family "Iosevka"))))
    '(variable-pitch ((t (:family "Iosevka")))))
 
   (transient-mark-mode t)
@@ -56,6 +57,16 @@
   (use-package doom-modeline
     :ensure t
     :init (doom-modeline-mode 1))
+
+  (use-package nerd-icons-grep
+    :init
+    (nerd-icons-grep-mode)
+    :custom
+    (grep-use-headings t))
+
+  (use-package nerd-icons-completion
+    :config
+    (nerd-icons-completion-mode))
 
   (use-package magit
     :ensure t

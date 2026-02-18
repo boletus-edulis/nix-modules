@@ -31,7 +31,8 @@
       epkgs.vterm epkgs.treesit-grammars.with-all-grammars epkgs.use-package
       epkgs.helm epkgs.treesit-auto epkgs.doom-modeline epkgs.magit
       epkgs.blacken epkgs.flycheck epkgs.yasnippet epkgs.nix-ts-mode
-      epkgs.yaml-mode epkgs.yasnippet-capf
+      epkgs.yaml-mode epkgs.yasnippet-capf epkgs.nerd-icons
+      epkgs.nerd-icons-completion epkgs.nerd-icons-grep
     ];
     extraConfig = (builtins.readFile ./init.el);
   };
@@ -42,5 +43,5 @@
   #  source = ./init.el;
   #};
 
-  home.packages = with pkgs; [ ispell hunspell ];
+  home.packages = with pkgs; [ ispell hunspell iosevka-bin ];
 }
