@@ -48,7 +48,7 @@
     #package = pkgs.emacs-nox;
     package = pkgs.emacs-gtk;
     extraPackages = epkgs: [
-      epkgs.vterm epkgs.treesit-grammars.with-all-grammars epkgs.use-package
+      epkgs.vterm epkgs.use-package
       epkgs.helm epkgs.treesit-auto epkgs.doom-modeline epkgs.magit
       epkgs.blacken epkgs.flycheck epkgs.yasnippet epkgs.nix-ts-mode
       epkgs.yaml-mode epkgs.yasnippet-capf epkgs.nerd-icons
