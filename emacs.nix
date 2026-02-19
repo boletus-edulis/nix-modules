@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.fish = {
@@ -48,7 +48,12 @@
     #package = pkgs.emacs-nox;
     package = pkgs.emacs-gtk;
     extraPackages = epkgs: [
-      epkgs.vterm epkgs.use-package
+      epkgs.vterm
+      (epkgs.treesit-grammars.with-grammars (
+	x: builtins.attrValues (lib.attrsets.filterAttrs (
+	  n: v: if (builtins.toString n) == "tree-sitter-quint" then false else true)
+	  x)))
+      epkgs.use-package
       epkgs.helm epkgs.treesit-auto epkgs.doom-modeline epkgs.magit
       epkgs.blacken epkgs.flycheck epkgs.yasnippet epkgs.nix-ts-mode
       epkgs.yaml-mode epkgs.yasnippet-capf epkgs.nerd-icons
