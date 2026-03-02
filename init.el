@@ -14,7 +14,7 @@
   (load custom-file 'noerror)
 
   (custom-set-faces
-   '(default ((t (:family "Iosevka Term Slab" :foundry "BE5N" :slant normal :weight normal :height 128 :width normal))))
+   '(default ((t (:family "Iosevka Term" :foundry "BE5N" :slant normal :weight normal :height 128 :width normal))))
    '(Info-quoted ((t (:family "Iosevka"))))
    '(fixed-pitch ((t (:family "Iosevka"))))
    '(fixed-pitch-serif ((t (:family "Iosevka"))))
