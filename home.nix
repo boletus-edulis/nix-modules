@@ -1,7 +1,7 @@
 { lib, pkgs, config, username, inputs, ... }:
 
 let
-  emacs = import ./emacs.nix { inherit config pkgs; };
+  emacs = import ./emacs.nix { inherit config pkgs lib; };
   home = {
     packages = with pkgs; [
       atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
