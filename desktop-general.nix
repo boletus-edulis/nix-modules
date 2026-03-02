@@ -59,7 +59,7 @@
     };
 
     fonts.packages = [
-      pkgs.iosevka-bin.override { variant = "SGr-IosevkaTerm"; }
+      (pkgs.iosevka-bin.override { variant = "SGr-IosevkaTerm"; })
       #cpkgs.iosevka-term
       pkgs.font-awesome
     ];
