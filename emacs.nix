@@ -11,7 +11,8 @@
     settings = {
       show_banner = false;
       history = {
-	format = "sqlite";
+	file_format = "sqlite";
+	max_size = "1_000_000";
       };
     };
   };
