@@ -7,7 +7,6 @@
       pkgs.nushellPlugins.formats
       pkgs.nushellPlugins.query
       pkgs.nushellPlugins.polars
-      pkgs.nushellPlugins.desktop_notifications
     ];
     settings = {
       show_banner = false;
