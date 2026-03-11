@@ -58,7 +58,7 @@
 	x: builtins.attrValues (lib.attrsets.filterAttrs (
 	  n: v: if (builtins.toString n) == "tree-sitter-quint" then false else true)
 	  x)))
-      epkgs.use-package epkgs.nushell-ts-mode
+      epkgs.use-package epkgs.nushell-ts-mode epkgs.powershell
       epkgs.helm epkgs.treesit-auto epkgs.doom-modeline epkgs.magit
       epkgs.blacken epkgs.flycheck epkgs.yasnippet epkgs.nix-ts-mode
       epkgs.yaml-mode epkgs.yasnippet-capf epkgs.nerd-icons
@@ -73,5 +73,8 @@
   #  source = ./init.el;
   #};
 
-  home.packages = with pkgs; [ ispell hunspell iosevka-bin ];
+  home.packages = with pkgs; [
+    ispell hunspell iosevka-bin lsof file dnsutils tmux curl git tcpdump gdb
+    strace
+  ];
 }

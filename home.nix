@@ -4,8 +4,7 @@ let
   emacs = import ./emacs.nix { inherit config pkgs lib; };
   home = {
     packages = with pkgs; [
-      atool curl git conntrack-tools lsof file dnsutils tmux efibootmgr iotop
-      nftables tcpdump gdb strace
+      atool conntrack-tools efibootmgr iotop nftables
     ] ++ emacs.home.packages;
     #inherit (emacs.home) file;
     stateVersion = "23.11";
