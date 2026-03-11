@@ -9,7 +9,6 @@
       pkgs.nushellPlugins.polars
       pkgs.nushellPlugins.highlight
       pkgs.nushellPlugins.desktop_notifications
-      pkgs.nushellPlugins.units
     ];
     settings = {
       show_banner = false;
