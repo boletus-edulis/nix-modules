@@ -1,17 +1,22 @@
 { config, pkgs, lib, ... }:
 
 {
-  programs.fish = {
+  programs.nushell = {
     enable = true;
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-    '';
     plugins = [
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-      { name = "done"; src = pkgs.fishPlugins.done.src; }
-      { name = "spark"; src = pkgs.fishPlugins.spark.src; }
-      { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
+      pkgs.nushellPlugins.formats
+      pkgs.nushellPlugins.query
+      pkgs.nushellPlugins.polars
+      pkgs.nushellPlugins.highlight
+      pkgs.nushellPlugins.desktop_notifications
+      pkgs.nushellPlugins.units
     ];
+    settings = {
+      show_banner = false;
+      history = {
+	format = "sqlite";
+      };
+    };
   };
 
   programs.bash = {
@@ -34,10 +39,10 @@
       export DICPATH=${builtins.concatStringsSep ":" (builtins.map buildPath dicts)}
     '';
     initExtra = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "nu" && -z ''${BASH_EXECUTION_STRING} ]]
       then
         shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+        exec ${pkgs.nushell}/bin/nu $LOGIN_OPTION
       fi
     '';
   };
@@ -53,7 +58,7 @@
 	x: builtins.attrValues (lib.attrsets.filterAttrs (
 	  n: v: if (builtins.toString n) == "tree-sitter-quint" then false else true)
 	  x)))
-      epkgs.use-package
+      epkgs.use-package epkgs.nushell-ts-mode
       epkgs.helm epkgs.treesit-auto epkgs.doom-modeline epkgs.magit
       epkgs.blacken epkgs.flycheck epkgs.yasnippet epkgs.nix-ts-mode
       epkgs.yaml-mode epkgs.yasnippet-capf epkgs.nerd-icons
@@ -68,5 +73,5 @@
   #  source = ./init.el;
   #};
 
-  home.packages = with pkgs; [ ispell hunspell iosevka-bin grc ];
+  home.packages = with pkgs; [ ispell hunspell iosevka-bin ];
 }
