@@ -73,6 +73,6 @@
 
   home.packages = with pkgs; [
     ispell hunspell iosevka-bin lsof file dnsutils tmux curl git tcpdump gdb
-    strace
+    strace ripgrep
   ];
 }

@@ -107,7 +107,7 @@
 
     home-manager.users."${username}" = { pkgs, config, ... }: {
       home.packages = with pkgs; [
-        swaylock helvum imhex flatpak virt-manager pavucontrol okular
+        swaylock crosspipe imhex flatpak virt-manager pavucontrol okular
         thunderbird firefox signal-desktop mumble chromium
       ];
       home.pointerCursor = {
@@ -196,7 +196,7 @@
             "wireplumber" = {
               format = "{volume}% {icon}";
               format-muted = "";
-              on-click = "helvum";
+              on-click = "crosspipe";
               format-icons = [ "" "" "" ];
             };
 
