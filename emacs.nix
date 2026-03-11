@@ -12,7 +12,7 @@
       show_banner = false;
       history = {
 	file_format = "sqlite";
-	max_size = "1_000_000";
+	max_size = 1000000;
       };
     };
   };
