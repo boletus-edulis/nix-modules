@@ -60,7 +60,7 @@
       epkgs.helm epkgs.treesit-auto epkgs.doom-modeline epkgs.magit
       epkgs.blacken epkgs.flycheck epkgs.yasnippet epkgs.nix-ts-mode
       epkgs.yaml-mode epkgs.yasnippet-capf epkgs.nerd-icons
-      epkgs.nerd-icons-grep epkgs.smartparens
+      epkgs.nerd-icons-grep epkgs.smartparens epkgs.helm-rg
     ];
     extraConfig = (builtins.readFile ./init.el);
   };
