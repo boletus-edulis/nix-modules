@@ -65,14 +65,8 @@
     extraConfig = (builtins.readFile ./init.el);
   };
 
-  #home.file.emacs-init-el = {
-  #  enable = true;
-  #  target = ".emacs.d/init.el";
-  #  source = ./init.el;
-  #};
-
   home.packages = with pkgs; [
-    ispell hunspell iosevka-bin lsof file dnsutils tmux curl git tcpdump gdb
-    strace ripgrep
+    ispell hunspell iosevka-bin lsof file dnsutils tmux curl git tcpdump strace
+    gdb ripgrep jq
   ];
 }
