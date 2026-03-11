@@ -7,7 +7,6 @@
       pkgs.nushellPlugins.formats
       pkgs.nushellPlugins.query
       pkgs.nushellPlugins.polars
-      pkgs.nushellPlugins.highlight
       pkgs.nushellPlugins.desktop_notifications
     ];
     settings = {
