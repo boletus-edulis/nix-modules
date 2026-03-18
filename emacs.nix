@@ -109,6 +109,8 @@
         }
 
         $env.config.color_config = (color_theme)
+	$env.LS_COLORS = ""
+        $env.config.buffer_editor = [ "emacs" "-nw" ]
       '';
     };
     settings = {
@@ -162,7 +164,7 @@
 	x: builtins.attrValues (lib.attrsets.filterAttrs (
 	  n: v: if (builtins.toString n) == "tree-sitter-quint" then false else true)
 	  x)))
-      epkgs.use-package epkgs.nushell-mode epkgs.powershell
+      epkgs.use-package epkgs.nushell-mode epkgs.powershell epkgs.edit-indirect
       epkgs.helm epkgs.treesit-auto epkgs.doom-modeline epkgs.magit
       epkgs.blacken epkgs.flycheck epkgs.yasnippet epkgs.nix-ts-mode
       epkgs.yaml-mode epkgs.yasnippet-capf epkgs.nerd-icons
