@@ -111,6 +111,34 @@ def color_theme [] {
 $env.config.color_config = (color_theme)
 $env.LS_COLORS = ""
 $env.config.buffer_editor = [ "emacs" "-nw" ]
+
+$env.PROMPT_COMMAND = {||
+    let dir = match (do -i { $env.PWD | path relative-to $nu.home-dir }) {
+        null => $env.PWD
+        "" => '~'
+        $relative_pwd => ([~ $relative_pwd] | path join)
+    }
+
+    let user = whoami
+    let user_color = ansi light_gray
+    let user_segment = $"($user_color)($user)(ansi reset)"
+
+    let path_color = ansi light_gray
+    let path_segment = $"($path_color)($dir)(ansi reset)"
+
+    let separator_color = ansi light_gray
+    $path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)" | prepend $"($user_segment):\(($env.LAST_EXIT_CODE | fill --alignment r --character ' ' --width 4)\):"
+}
+
+$env.PROMPT_COMMAND_RIGHT = ""
+
+$env.PROMPT_INDICATOR = {||
+    (if (is-admin) {
+        $"(ansi light_gray)# (ansi reset)"
+    } else {
+        $"(ansi light_gray)$ (ansi reset)"
+    })
+}
       '';
     };
     settings = {
@@ -121,6 +149,9 @@ $env.config.buffer_editor = [ "emacs" "-nw" ]
       history = {
 	file_format = "sqlite";
 	max_size = 1000000;
+      };
+      display_errors = {
+	exit_code = true;
       };
     };
   };
