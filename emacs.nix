@@ -130,9 +130,9 @@ $env.PROMPT_COMMAND = {||
     $path_segment |
         str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)" |
 	prepend $"($user_segment):\((
-            $env.LAST_EXIT_CODE |
-	    format number --no-prefix |
-            select upperhex | values | first | fill --alignment r --character '0' --width 2)\):"
+            ($env.LAST_EXIT_CODE | format number --no-prefix).upperhex |
+	    fill --alignment r --character '0' --width 2
+        )\):"
 }
 
 $env.PROMPT_COMMAND_RIGHT = ""
