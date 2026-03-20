@@ -127,24 +127,73 @@ $env.PROMPT_COMMAND = {||
     let path_segment = $"($path_color)($dir)(ansi reset)"
 
     let separator_color = ansi light_gray
-    $path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)" | prepend $"($user_segment):\(($env.LAST_EXIT_CODE | fill --alignment r --character ' ' --width 4)\):"
+    $path_segment |
+        str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)" |
+	prepend $"($user_segment):\((
+            $env.LAST_EXIT_CODE |
+	    format number --no-prefix |
+            select upperhex | values | first | fill --alignment r --character '0' --width 2)\):"
 }
 
 $env.PROMPT_COMMAND_RIGHT = ""
 
+$env.PROMPT_MULTILINE_INDICATOR = {||
+    (if (is-admin) {
+        $"(ansi red)::: (ansi reset)"
+    } else {
+        $"(ansi light_gray)::: (ansi reset)"
+    })
+}
+
 $env.PROMPT_INDICATOR = {||
     (if (is-admin) {
-        $"(ansi light_gray)# (ansi reset)"
+        $"(ansi red)# (ansi reset)"
     } else {
         $"(ansi light_gray)$ (ansi reset)"
     })
 }
+
+$env.TRANSIENT_PROMPT_COMMAND = $env.PROMPT_COMMAND
+
+$env.config.completions.algorithm = "fuzzy"
+$env.config.menus ++= [{
+    name: completion_menu
+    only_buffer_difference: false
+    marker: "| "
+    type: {
+        layout: columnar
+        columns: 4
+        col_width: 20
+        col_padding: 2
+    }
+    style: {
+        text: light_gray
+        selected_text: light_gray_reverse
+        description_text: gray
+    }
+}]
+
+$env.config.menus ++= [{
+    name: history_menu
+    only_buffer_difference: true
+    marker: "? "
+    type: {
+        layout: list
+        page_size: 10
+    }
+    style: {
+        text: light_gray
+        selected_text: light_gray_reverse
+        description_text: gray
+    }
+}]
+
       '';
     };
     settings = {
       show_banner = false;
       table = {
-	mode = "basic";
+	mode = "markdown";
       };
       history = {
 	file_format = "sqlite";
