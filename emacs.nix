@@ -131,7 +131,7 @@ $env.PROMPT_COMMAND = {||
     let prompt_0 = $path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
     mut prompt_1 = ""
     if $exit_code != 0 {
-        prompt_0 | prepend $"(($env.LAST_EXIT_CODE | format number --no-prefix).display):""
+        prompt_0 | prepend $"(($env.LAST_EXIT_CODE | format number --no-prefix).display):"
     }
     prompt_0 | prepend $"($user_segment):"
 }
