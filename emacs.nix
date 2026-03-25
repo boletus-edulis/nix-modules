@@ -113,6 +113,7 @@ $env.LS_COLORS = ""
 $env.config.buffer_editor = [ "emacs" "-nw" ]
 
 $env.PROMPT_COMMAND = {||
+    let exit_code = $env.LAST_EXIT_CODE
     let dir = match (do -i { $env.PWD | path relative-to $nu.home-dir }) {
         null => $env.PWD
         "" => '~'
@@ -127,12 +128,12 @@ $env.PROMPT_COMMAND = {||
     let path_segment = $"($path_color)($dir)(ansi reset)"
 
     let separator_color = ansi light_gray
-    $path_segment |
-        str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)" |
-	prepend $"($user_segment):\((
-            ($env.LAST_EXIT_CODE | format number --no-prefix).upperhex |
-	    fill --alignment r --character '0' --width 2
-        )\):"
+    let prompt_0 = $path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
+    mut prompt_1 = ""
+    if $exit_code != 0 {
+        prompt_0 | prepend $"(($env.LAST_EXIT_CODE | format number --no-prefix).display):""
+    }
+    prompt_0 | prepend $"($user_segment):"
 }
 
 $env.PROMPT_COMMAND_RIGHT = ""
