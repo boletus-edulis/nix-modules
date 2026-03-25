@@ -170,7 +170,6 @@ $env.config.menus ++= [{
         text: light_gray
         selected_text: light_gray_reverse
         description_text: gray
-	selected_background: dark_dray_reverse
     }
 }]
 
@@ -186,7 +185,6 @@ $env.config.menus ++= [{
         text: light_gray
         selected_text: light_gray_reverse
         description_text: gray
-        selected_background: dark_dray_reverse
     }
 }]
 
