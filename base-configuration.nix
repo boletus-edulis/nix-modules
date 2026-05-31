@@ -48,7 +48,7 @@
     services.fwupd.enable = true;
 
     documentation.dev.enable = true;
-    documentation.man.generateCaches = true;
+    documentation.man.cache.enable = true;
 
     environment.systemPackages = with pkgs; [ man-pages man-pages-posix ];
   };
