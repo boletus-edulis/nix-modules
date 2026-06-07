@@ -32,8 +32,8 @@
   #  "${cpkgs.launch.pname}" = "${cpkgs.launch}/test/${cpkgs.launch.pname}";
   #};
 
-  #hardware.deviceTree.package = lib.mkForce "${builtins.toString pkgs.linuxPackages_latest.kernel}/dtbs/qcom";
-  hardware.deviceTree.package = lib.mkForce "${builtins.toString cpkgs.linux_x13s}/dtbs/qcom";
+  hardware.deviceTree.package = lib.mkForce "${builtins.toString pkgs.linuxPackages_latest.kernel}/dtbs/qcom";
+  #hardware.deviceTree.package = lib.mkForce "${builtins.toString cpkgs.linux_x13s}/dtbs/qcom";
   hardware.deviceTree.enable = true;
 
   boot.loader.systemd-boot.enable = true;
