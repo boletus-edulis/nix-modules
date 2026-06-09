@@ -44,6 +44,11 @@
       settings.X11Forwarding = true;
     };
 
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
     services.logrotate.enable = true;
     services.fwupd.enable = true;
 
